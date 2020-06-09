@@ -1,0 +1,42 @@
+
+
+
+/* Options and key/value wizard */
+.tl_optionwizard {
+    width:100%;
+    max-width:600px;
+}
+.tl_key_value_wizard {
+    width:100%;
+    max-width:450px;
+}
+.tl_optionwizard,.tl_key_value_wizard {
+    margin-top:2px;
+}
+.tl_optionwizard label,.tl_key_value_wizard label {
+    margin-right:3px;
+}
+.tl_optionwizard td,.tl_key_value_wizard td {
+    padding:0 3px 0 0;
+}
+.tl_optionwizard th,.tl_key_value_wizard th {
+    font-size:.75rem;
+    font-weight:400;
+    padding:0 6px 1px 0;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+    .tl_optionwizard th,.tl_key_value_wizard th {
+        font-weight:300;
+    }
+}
+.tl_optionwizard td:nth-child(n+3),.tl_key_value_wizard td:nth-child(n+3) {
+    width:1%;
+    white-space:nowrap;
+}
+.tl_optionwizard img,.tl_key_value_wizard img {
+    position:relative;
+    top:1px;
+}
+.tl_optionwizard .fw_checkbox,.tl_key_value_wizard .fw_checkbox {
+    margin:0 1px;
+}

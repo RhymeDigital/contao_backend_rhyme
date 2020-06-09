@@ -1,0 +1,9 @@
+/* Backwards compatiblity */
+#manager {
+    padding:9px 6px 0;
+    border-bottom:1px solid #ddd;
+}
+#manager a {
+    padding:3px 12px 3px 32px;
+    background:url("icons/manager.svg") 12px center no-repeat;
+}

@@ -1,0 +1,91 @@
+
+
+/* Filter */
+.tl_panel,.tl_version_panel {
+    padding:8px 10px 8px 0;
+    background:#f3f3f5;
+    border-bottom:1px solid #ddd;
+    text-align:right;
+}
+.tl_version_panel .tl_select {
+    max-width:280px;
+}
+.tl_version_panel .tl_formbody {
+    position:relative;
+}
+.tl_img_submit {
+    width:16px;
+    height:16px;
+    border:0;
+    margin:0;
+    padding:0;
+    text-indent:16px; /* 16px width */
+    white-space:nowrap;
+    overflow:hidden;
+    position:relative;
+    top:9px;
+    vertical-align:top;
+    cursor:pointer;
+}
+.filter_apply {
+    background:url("icons/filter-apply.svg") center center no-repeat;
+}
+.filter_reset {
+    background:url("icons/filter-reset.svg") center center no-repeat;
+}
+.tl_subpanel {
+    float:right;
+    letter-spacing:-.31em;
+}
+.tl_subpanel * {
+    letter-spacing:normal;
+}
+.tl_subpanel strong,.tl_search span {
+    vertical-align:middle;
+}
+.tl_submit_panel {
+    min-width:32px;
+    padding-left:6px;
+    padding-right:3px;
+}
+.tl_panel .active,.tl_panel_bottom .active,#search .active {
+    background-color:#fffce1;
+}
+.tl_filter {
+    width:100%;
+}
+.tl_filter .tl_select {
+    max-width:14.65%;
+    margin-left:3px;
+}
+.tl_submit_panel + .tl_filter {
+    width:86%;
+}
+.tl_limit {
+    width:22%;
+}
+.tl_limit .tl_select {
+    width:52%;
+    margin-left:3px;
+}
+.tl_search {
+    width:40%;
+}
+.tl_search .tl_select {
+    width:38%;
+    margin-left:3px;
+    margin-right:1%;
+}
+.tl_search .tl_text {
+    width:30%;
+    margin-left:1%;
+    -webkit-appearance:textfield;
+    box-sizing:content-box;
+}
+.tl_sorting {
+    width:26%;
+}
+.tl_sorting .tl_select {
+    width:60%;
+    margin-left:1%;
+}

@@ -1,0 +1,39 @@
+
+/* Left */
+#left {
+    float:left;
+    width:225px;
+    min-height:calc(100vh - 40px);
+    display:flex;
+    flex-direction:column;
+
+    .version {
+        margin-top:4em;
+        padding:15px;
+        font-size:.75rem;
+        line-height:1.4;
+    }
+    .version, .version a {
+        color:#9fa4a8;
+    }
+}
+
+
+/* Tablet */
+@media (max-width:991px) {
+    #left {
+        position:absolute;
+        top:40px;
+        width:240px;
+        transition:transform .2s ease;
+        -webkit-transform:translateX(-240px);
+        transform:translateX(-240px);
+        will-change:transform;
+        float:none;
+        overflow:hidden;
+    }
+    .show-navigation #left {
+        -webkit-transform:none;
+        transform:none;
+    }
+}

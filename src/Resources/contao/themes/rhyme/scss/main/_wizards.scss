@@ -1,0 +1,16 @@
+
+/* Wizards */
+.tl_modulewizard button,.tl_optionwizard button,.tl_key_value_wizard button,.tl_tablewizard button,.tl_listwizard button,.tl_checkbox_wizard button,.tl_metawizard button,.tl_sectionwizard button {
+    margin:0;
+    padding:0;
+    border:0;
+    background:none;
+}
+
+@import "wizards_moduleWizard";
+@import "wizards_optionWizard";
+@import "wizards_tableWizard";
+@import "wizards_listWizard";
+@import "wizards_checkboxWizard";
+@import "wizards_metaWizard";
+@import "wizards_sectionWizard";

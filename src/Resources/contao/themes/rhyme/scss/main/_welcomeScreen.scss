@@ -1,0 +1,61 @@
+
+
+
+/* Welcome screen */
+.popup #tl_soverview {
+    margin-top:15px;
+}
+#tl_soverview > div {
+    padding:0 15px 4px;
+    border-bottom:1px solid #e6e6e8;
+}
+#tl_soverview > div:last-child {
+    border-bottom:0;
+}
+#tl_soverview table {
+    width:100%;
+    margin-bottom:14px;
+}
+#tl_messages h2,#tl_shortcuts h2,#tl_versions h2 {
+    margin:18px 0 6px;
+}
+#tl_messages p:not([class]) {
+    margin-top:6px;
+}
+#tl_messages .tl_error,#tl_messages .tl_confirm,#tl_messages .tl_info,#tl_messages .tl_new {
+    padding:3px 6px 3px 21px;
+    background-position:left 4px;
+    background-color:transparent;
+}
+#tl_shortcuts p a {
+    text-decoration:underline;
+}
+#tl_versions {
+    margin-bottom:0;
+}
+#tl_versions th {
+    background:#f6f6f8;
+    padding:6px;
+    border-top:1px solid #e9e9e9;
+}
+#tl_versions th,#tl_versions td {
+    border-bottom:1px solid #e9e9e9;
+}
+#tl_versions td {
+    padding:4px;
+}
+#tl_versions td:first-child {
+    white-space:nowrap;
+}
+#tl_versions td:last-child {
+    width:32px;
+    white-space:nowrap;
+    text-align:right;
+}
+#tl_versions img.undo {
+    padding-right:2px;
+}
+#tl_versions .pagination {
+    margin-top:18px;
+    margin-bottom:14px;
+}

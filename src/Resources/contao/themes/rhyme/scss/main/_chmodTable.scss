@@ -1,0 +1,27 @@
+
+
+
+/* CHMOD table */
+.tl_chmod {
+    width:100%;
+}
+.tl_chmod th {
+    height:18px;
+    text-align:center;
+    font-weight:400;
+    background:#f0f0f2;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+    .tl_chmod th {
+        font-weight:300;
+    }
+}
+.tl_chmod td {
+    text-align:center;
+    background:#f6f6f8;
+}
+.tl_chmod th,.tl_chmod td {
+    width:14.2857%;
+    padding:6px;
+    border:1px solid #fff;
+}
