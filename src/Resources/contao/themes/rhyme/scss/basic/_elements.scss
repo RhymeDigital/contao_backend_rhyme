@@ -1,0 +1,60 @@
+
+/* Basic elements */
+a {
+    color:#444;
+    text-decoration:none;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+    a {
+        color:#222;
+    }
+}
+a:hover,a:active {
+    color:#006494;
+}
+hr {
+    height:1px;
+    margin:18px 0;
+    border:0;
+    background:#ddd;
+    color:#ddd;
+}
+p {
+    margin-bottom:1em;
+    padding:0;
+}
+.hidden {
+    display:none;
+}
+.unselectable {
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    -webkit-touch-callout:none;
+}
+
+/* Invisible elements */
+.clear {
+    clear:both;
+    height:0.1px;
+    line-height:0.1px;
+    font-size:0.1px;
+}
+.cf:before,.cf:after {
+    content:" ";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+.invisible {
+    border:0;
+    clip:rect(0 0 0 0);
+    height:1px;
+    margin:-1px;
+    overflow:hidden;
+    padding:0;
+    position:absolute;
+    width:1px;
+}

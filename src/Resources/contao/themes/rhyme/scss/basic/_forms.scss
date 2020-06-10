@@ -1,0 +1,32 @@
+
+/* Forms */
+optgroup {
+    padding-top:3px;
+    padding-bottom:3px;
+    font-style:normal;
+    background:#fff;
+}
+fieldset.tl_checkbox_container,fieldset.tl_radio_container {
+    border:0;
+    margin:15px 0 1px;
+    padding:0;
+}
+fieldset.tl_checkbox_container {
+    line-height:15px;
+}
+fieldset.tl_radio_container {
+    line-height:16px;
+}
+fieldset.tl_checkbox_container legend,fieldset.tl_radio_container legend {
+    font-weight:600;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+    fieldset.tl_checkbox_container legend,fieldset.tl_radio_container legend {
+        font-weight:500;
+    }
+}
+fieldset.checkbox_container,fieldset.radio_container {
+    border:0;
+    margin:0;
+    padding:0;
+}
