@@ -1,0 +1,52 @@
+/* Font */
+body {
+    font:400 1rem/1.25 $bodyFont;
+    color: $bodyFontColor;
+}
+h1,h2,h3,h4,h5,h6,strong,b,th {
+    color: $bodyFontColor;
+    font-weight:400;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+    body {
+        color: $bodyFontColor;
+        font-weight:300;
+    }
+    h1,h2,h3,h4,h5,h6,strong,b,th {
+        font-weight:400;
+    }
+}
+pre,code,.tl_textarea.monospace {
+    font:300 .75rem/1.25 $codeFont;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:1.25rem;
+}
+input,textarea,select,button {
+    font:inherit;
+    color:inherit;
+    line-height:17px; /* see #501 and #79 */
+}
+@supports (display:-ms-grid) {
+    input,textarea,select,button {
+        line-height:1.1;
+    }
+}
+.tl_gray {
+    color: $tlGray;
+}
+.tl_green {
+    color: $tlGreen;
+}
+.tl_red {
+    color: $tlRed;
+}
+.tl_blue {
+    color: $tlBlue;
+}
+.tl_orange {
+    color: $tlOrange;
+}
+span.mandatory {
+    color: $tlRed;
+}

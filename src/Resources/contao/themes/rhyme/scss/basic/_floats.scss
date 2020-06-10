@@ -1,0 +1,82 @@
+
+/* Floats */
+.clr {
+    clear:both;
+    width:calc(100% - 30px);
+}
+.clr:not(.widget) {
+    width:100%;
+}
+.clr:before {
+    content:"";
+    display:table;
+}
+.w50 {
+    width:calc(50% - 30px);
+    float:left;
+    min-height:80px;
+}
+.long {
+    width:calc(100% - 30px); /* see #6320 */
+}
+.wizard > a {
+    vertical-align:middle;
+}
+.wizard .tl_text,.wizard .tl_select {
+    width:calc(100% - 24px);
+}
+.wizard .tl_text_2 {
+    width:45%;
+}
+.wizard img {
+    margin-left:4px;
+}
+.long .tl_text,.long .tl_select {
+    width:100%;
+}
+.m12 {
+    margin:17px 15px;
+}
+.cbx {
+    min-height:auto;
+}
+.subpal {
+    clear:both;
+}
+.inline div {
+    display:inline;
+}
+.autoheight {
+    height:auto;
+}
+.dcapicker .tl_text {
+    padding-right:26px;
+}
+.dcapicker .tl_text + a {
+    position:relative;
+    top:2px;
+    margin-left:-22px;
+}
+
+/* Handheld */
+@media (max-width:767px) {
+    .w50 {
+        float:none;
+        width:calc(100% - 30px);
+    }
+    .m12 {
+        margin-top:0;
+        margin-bottom:0;
+    }
+    .tip {
+        max-width:80vw;
+    }
+    .tl_checkbox_container .tl_checkbox {
+        margin-top:1px;
+        margin-bottom:1px;
+    }
+    .tl_checkbox_single_container label {
+        position:relative;
+        top:1px;
+    }
+}

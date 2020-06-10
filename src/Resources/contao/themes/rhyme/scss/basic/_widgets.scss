@@ -1,0 +1,35 @@
+
+/* Widgets */
+.widget {
+    margin-left:15px;
+    margin-right:15px;
+    position:relative;
+}
+.widget {
+    font-size:0;
+}
+.widget * {
+    font-size:.875rem;
+}
+.widget > div {
+    font-size:0;
+}
+.widget > div > * {
+    font-size:.875rem;
+}
+.widget h3 {
+    min-height:16px;
+}
+.widget h3 label {
+    margin-right:3px;
+}
+.widget h3 img {
+    vertical-align:bottom;
+    margin-right:3px;
+}
+.widget-captcha {
+    display:initial !important;
+}
+.widget .mce-tinymce {
+    margin:2px 0;
+}
