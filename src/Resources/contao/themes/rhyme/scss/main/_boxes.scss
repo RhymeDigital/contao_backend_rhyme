@@ -39,6 +39,9 @@
 .tl_help a:hover,.tl_help a:focus,.tl_help a:active {
     text-decoration:underline;
 }
+.tl_formbody_edit {
+    padding-bottom: 40px;
+}
 .tl_formbody_edit.nogrid .w50 {
     float:none;
 }
@@ -51,6 +54,10 @@
 }
 .tl_formbody_submit {
     border-top:1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width:calc(100% - 225px);
 }
 .tl_submit_container {
     padding:8px 15px;
@@ -59,4 +66,11 @@
 .tl_submit_container .tl_submit {
     margin-top:2px;
     margin-bottom:2px;
+}
+
+@media (max-width:991px) {
+
+    .tl_formbody_submit {
+        width: 100% !important;
+    }
 }

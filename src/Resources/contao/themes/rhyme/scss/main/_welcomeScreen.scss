@@ -35,14 +35,14 @@
 }
 #tl_versions th {
     background:#f6f6f8;
-    padding:6px;
+    padding:8px;
     border-top:1px solid #e9e9e9;
 }
 #tl_versions th,#tl_versions td {
     border-bottom:1px solid #e9e9e9;
 }
 #tl_versions td {
-    padding:4px;
+    padding: 12px;
 }
 #tl_versions td:first-child {
     white-space:nowrap;
@@ -51,6 +51,12 @@
     width:32px;
     white-space:nowrap;
     text-align:right;
+
+    img {
+        width: 20px;
+        height: auto;
+        margin-right: 3px;
+    }
 }
 #tl_versions img.undo {
     padding-right:2px;
