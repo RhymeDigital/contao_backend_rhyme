@@ -1,0 +1,24 @@
+
+
+.simple-modal {
+    font-family: $bodyFont;
+
+    .simple-modal-footer {
+
+        a.btn {
+            padding:10px 15px;
+            border:1px solid #aaa;
+            border-radius:2px;
+            box-sizing:border-box;
+            cursor:pointer;
+            background:#eee;
+            transition:background .2s ease;
+            font: 400 1rem/1.25 $bodyFont;
+        }
+        a.btn.primary {
+            border:1px solid $tlBlue;
+            background: rgba($tlBlue, 0.85);
+            color: $white;
+        }
+    }
+}

@@ -3,20 +3,27 @@
 /* Fieldsets */
 fieldset.tl_tbox,fieldset.tl_box {
     margin-top:5px;
-    padding-top:0;
+    padding-top: 20px;
+    padding-bottom: 60px;
     border-top:none;
     border-left:0;
     border-right:0;
+    position: relative;
 }
 fieldset.tl_tbox.nolegend,fieldset.tl_box.nolegend {
     border-top:0;
 }
 fieldset.tl_tbox > legend,fieldset.tl_box > legend {
     box-sizing:border-box;
-    color:#6a6a6c;
+    color: $contaoOrange;
+    font-weight: 700;
     padding:9px 12px 9px 28px;
-    background:url("icons/navcol.svg") 13px 11px no-repeat;
+    background:url("icons/navcol.svg") 13px 15px no-repeat;
     cursor:pointer;
+    position: absolute;
+    left: 0;
+    top: -25px;
+    background-color: #fff;
 }
 fieldset.collapsed {
     margin-bottom:0;
@@ -26,5 +33,5 @@ fieldset.collapsed div {
     display:none !important;
 }
 fieldset.collapsed > legend {
-    background:url("icons/navexp.svg") 13px 11px no-repeat;
+    background:url("icons/navexp.svg") #fff 13px 15px no-repeat;
 }

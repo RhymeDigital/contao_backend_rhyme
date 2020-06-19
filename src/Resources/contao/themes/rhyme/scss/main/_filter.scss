@@ -3,9 +3,15 @@
 /* Filter */
 .tl_panel,.tl_version_panel {
     padding:8px 10px 8px 0;
-    background:#f3f3f5;
-    border-bottom:1px solid #ddd;
     text-align:right;
+}
+.tl_version_panel a {
+    padding: 8px;
+
+    img {
+        width: 20px;
+        height: auto;
+    }
 }
 .tl_version_panel .tl_select {
     max-width:280px;
@@ -14,24 +20,22 @@
     position:relative;
 }
 .tl_img_submit {
-    width:16px;
-    height:16px;
-    border:0;
-    margin:0;
-    padding:0;
-    text-indent:16px; /* 16px width */
+    margin: 2px;
+    padding: 10px 10px 10px 30px;
+    border-radius: 4px;
+    border: 1px solid $medGray;
     white-space:nowrap;
-    overflow:hidden;
     position:relative;
-    top:9px;
     vertical-align:top;
     cursor:pointer;
 }
 .filter_apply {
-    background:url("icons/filter-apply.svg") center center no-repeat;
+    background:url("icons/filter-apply.svg") 10px center no-repeat rgba($tlGreen, 0.1);
+    color: rgba($tlGreen, 0.75);
 }
 .filter_reset {
-    background:url("icons/filter-reset.svg") center center no-repeat;
+    background:url("icons/filter-reset.svg") 10px center no-repeat rgba($tlRed, 0.1);
+    color: rgba($tlRed, 0.75);
 }
 .tl_subpanel {
     float:right;
@@ -62,7 +66,8 @@
     width:86%;
 }
 .tl_limit {
-    width:22%;
+    width:12%;
+    min-width: 200px;
 }
 .tl_limit .tl_select {
     width:52%;
