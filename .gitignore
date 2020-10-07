@@ -9,3 +9,7 @@ out
 gen
 
 /node_modules
+
+/.idea
+.idea
+/.idea/
