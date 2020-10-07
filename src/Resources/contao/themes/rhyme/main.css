@@ -847,7 +847,7 @@ table.tl_listing {
 .tl_file_list {
   padding: 12px 0; }
   .tl_file_list .ellipsis {
-    height: 16px;
+    height: 20px;
     text-overflow: ellipsis;
     overflow: hidden;
     padding-right: 18px;
