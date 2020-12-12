@@ -72,7 +72,7 @@ body:not(.fullscreen) #header .inner {
     padding-right: 26px;
     cursor: pointer;
     background: url("icons/chevron-down.svg") right 9px top 14px no-repeat;
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #fff; }
   #tmenu a, #tmenu .h2, #tmenu .burger button {
@@ -848,7 +848,7 @@ table.tl_listing {
 .tl_file_list {
   padding: 12px 0; }
   .tl_file_list .ellipsis {
-    height: 16px;
+    height: 20px;
     text-overflow: ellipsis;
     overflow: hidden;
     padding-right: 18px;
