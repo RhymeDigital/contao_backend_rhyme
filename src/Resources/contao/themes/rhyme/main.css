@@ -507,6 +507,7 @@ h2.sub_headline {
   position: fixed;
   bottom: 0;
   right: 0;
+  z-index: 100000;
   width: calc(100% - 225px); }
 
 .tl_submit_container {
