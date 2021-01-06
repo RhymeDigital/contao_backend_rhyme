@@ -1,0 +1,5 @@
+<?php $this->extend('be_tinyMCE'); ?>
+
+<?php $this->block('toolbar'); ?>
+    toolbar: 'link unlink | image | forecolor | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code',
+<?php $this->endblock(); ?>

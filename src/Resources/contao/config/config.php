@@ -10,9 +10,21 @@ declare(strict_types=1);
  * @license LGPL-3.0+
  */
 
+use Contao\ArrayUtil;
+use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
+
 //Set global backend theme
 $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme';
 
-//Hooks
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run');
+/**
+ * Back end modules
+ */
+AdjustNavItems::pages();
+AdjustNavItems::notificationCenter();
+
+/**
+ * Hooks
+ */
+$GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
+$GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
 
