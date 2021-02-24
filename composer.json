@@ -1,6 +1,6 @@
 {
     "name": "rhymedigital/contao_backend_rhyme",
-    "type": "cotao-bundle",
+    "type": "contao-bundle",
     "description": "Contao Open Source CMS",
     "license": "LGPL-3.0-or-later",
     "keywords": [
