@@ -311,6 +311,16 @@ body:not(.fullscreen) #container {
   padding: 0 16px;
   font-size: 2rem; }
 
+#main_headline span:before {
+  content: '>';
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  vertical-align: middle; }
+
+#main_headline span:first-child:before {
+  display: none; }
+
 .popup #main_headline {
   display: none; }
 
