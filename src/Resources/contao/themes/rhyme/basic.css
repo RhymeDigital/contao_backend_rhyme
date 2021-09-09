@@ -540,6 +540,11 @@ a.tl_submit {
   width: 32px;
   height: auto; }
 
+.wizard.dcapicker img {
+  margin-left: -10px;
+  width: 21px;
+  height: auto; }
+
 .long .tl_text, .long .tl_select {
   width: 100%; }
 
