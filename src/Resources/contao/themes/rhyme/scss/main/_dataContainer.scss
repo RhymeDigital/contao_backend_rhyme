@@ -5,6 +5,17 @@
     margin:20px 0;
     padding:0 16px;
     font-size: 2rem;
+    
+    span:before {
+        content: '>';
+        font-size: 20px;
+        display: inline-block;
+        margin: 0 5px 0 0;
+        vertical-align: middle;
+    }
+    span:first-child:before {
+        display: none;
+    }
 }
 .popup #main_headline {
     display:none;
