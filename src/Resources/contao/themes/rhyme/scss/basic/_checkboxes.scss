@@ -2,7 +2,12 @@
 
 /* Checkboxes */
 .tl_checkbox {
-    margin:0 1px 0 0;
+    margin:5px 5px 5px 0;
+    
+    &+label {
+        margin: 5px 5px 5px 0;
+        display: inline-block;
+    }
 }
 .tl_tree_checkbox {
     margin:1px 1px 1px 0;
