@@ -317,7 +317,11 @@ select[multiple] {
     padding: 10px 18px 10px 2px; } }
 /* Checkboxes */
 .tl_checkbox {
-  margin: 0 1px 0 0; }
+  margin: 5px 5px 5px 0; }
+
+.tl_checkbox+label {
+  margin: 5px 5px 5px 0;
+  display: inline-block; }
 
 .tl_tree_checkbox {
   margin: 1px 1px 1px 0; }
