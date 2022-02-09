@@ -14,6 +14,7 @@ namespace Rhyme\ContaoBackendThemeBundle\Backend\Navigation;
 
 use Contao\Controller;
 use Contao\ArrayUtil;
+use Contao\Input;
 
 /**
  * Add scripts/stylesheets to the BE template
@@ -38,7 +39,10 @@ class AdjustNavItems extends Controller
 
         // Remove the old items
         unset($GLOBALS['BE_MOD']['design']['page']);
-        unset($GLOBALS['BE_MOD']['content']['article']);
+
+        if (!Input::get('picker') && !Input::get('popup')) {
+            unset($GLOBALS['BE_MOD']['content']['article']);
+        }
     }
 
     /**
