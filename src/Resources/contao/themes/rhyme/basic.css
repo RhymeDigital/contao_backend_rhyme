@@ -315,13 +315,24 @@ select[multiple] {
 @supports (display: -ms-grid) {
   .tl_select, .tl_mselect, .tl_select_column, .tl_select_unit, .tl_select_interval {
     padding: 10px 18px 10px 2px; } }
+/* CHOZEN Select menus */
+.chzn-container-single .chzn-single {
+  height: 36px;
+  line-height: 36px;
+  font-size: 0.875rem;
+  color: #999;
+  text-align: left; }
+
+.chzn-container .chzn-results {
+  font-size: 0.875rem;
+  text-align: left; }
+
 /* Checkboxes */
 .tl_checkbox {
   margin: 5px 5px 5px 0; }
-
-.tl_checkbox+label {
-  margin: 5px 5px 5px 0;
-  display: inline-block; }
+  .tl_checkbox + label {
+    margin: 5px 5px 5px 0;
+    display: inline-block; }
 
 .tl_tree_checkbox {
   margin: 1px 1px 1px 0; }

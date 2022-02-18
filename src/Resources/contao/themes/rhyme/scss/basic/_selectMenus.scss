@@ -52,3 +52,15 @@ select[multiple] {
         padding:10px 18px 10px 2px;
     }
 }
+/* CHOZEN Select menus */
+.chzn-container-single .chzn-single {
+    height: 36px;
+    line-height: 36px;
+    font-size: 0.875rem;
+    color: $medGray;
+    text-align: left;
+}
+.chzn-container .chzn-results {
+    font-size: 0.875rem;
+    text-align: left;
+}
