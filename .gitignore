@@ -13,3 +13,6 @@ gen
 /.idea
 .idea
 /.idea/
+
+package.json
+gulpfile.js
