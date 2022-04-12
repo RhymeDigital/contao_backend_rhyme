@@ -15,7 +15,7 @@ namespace Rhyme\ContaoBackendThemeBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Configures the Noho bundle
+ * Configures the Rhyme Backend theme bundle
  */
 final class RhymeContaoBackendThemeBundle extends Bundle
 {
