@@ -12,7 +12,7 @@ use Contao\Backend;
 
 /**
  * Class SetTinyMCE
- * @package Rhyme\MRMBundle\Hooks\LoadDataContainer
+ * @package Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer
  */
 class SetTinyMCE extends Backend
 {
@@ -28,7 +28,7 @@ class SetTinyMCE extends Backend
 
         foreach ($arrFields as $key=>$data)
         {
-            if ($data['eval']['rte'] === 'tinyMCE') {
+            if (!empty($data) && isset($data['eval']) && $data['eval']['rte'] === 'tinyMCE') {
                 $arrFields[$key]['eval']['rte'] = 'tinyMCE_rhyme';
             }
         }
