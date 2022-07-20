@@ -40,7 +40,7 @@ body:not(.fullscreen) #header .inner {
   justify-content: flex-end; }
   #tmenu li {
     position: relative; }
-  #tmenu a, #tmenu .h2 {
+  #tmenu a, #tmenu .h2, #tmenu .profile button {
     padding: 13px 12px;
     display: inline-block; }
   #tmenu img {
@@ -75,6 +75,15 @@ body:not(.fullscreen) #header .inner {
     font-size: 1rem;
     font-weight: 400;
     color: #fff; }
+  #tmenu .profile button {
+    position: relative;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+    border: none;
+    padding-right: 26px;
+    background: url("icons/chevron-down.svg") right 9px top 14px no-repeat; }
   #tmenu a, #tmenu .h2, #tmenu .burger button {
     transition: background-color .3s ease; }
   #tmenu a:hover, #tmenu a.hover, #tmenu li:hover .h2, #tmenu .active .h2, #tmenu .burger button:hover {

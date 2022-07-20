@@ -33,6 +33,7 @@ class AddScripts extends Controller
 
             $scripts = '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,800,900">';
             $scripts .= "\n";
+            $scripts .= '<script src="bundles/rhymecontaobackendtheme/assets/js/datepickerfixes.js"></script>';
             $strBuffer = str_replace('</head>', ($scripts . '</head>'), $strBuffer);
         }
 
