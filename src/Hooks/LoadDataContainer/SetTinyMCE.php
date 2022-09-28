@@ -28,7 +28,7 @@ class SetTinyMCE extends Backend
 
         foreach ($arrFields as $key=>$data)
         {
-            if (!empty($data) && isset($data['eval']) && $data['eval']['rte'] === 'tinyMCE') {
+            if (!empty($data) && isset($data['eval']) && isset($data['eval']['rte']) && $data['eval']['rte'] === 'tinyMCE') {
                 $arrFields[$key]['eval']['rte'] = 'tinyMCE_rhyme';
             }
         }
