@@ -2070,6 +2070,12 @@ fieldset.collapsed > legend {
   font-size: 1.3125rem;
   color: #ccc; }
 
+#tl_vee_style fieldset.tl_tbox > legend, #tl_vee_style fieldset.tl_box > legend,
+#tl_vee_design fieldset.tl_tbox > legend,
+#tl_vee_design fieldset.tl_box > legend {
+  top: auto;
+  position: static; }
+
 /* Tablet */
 @media (max-width: 991px) {
   #header {
