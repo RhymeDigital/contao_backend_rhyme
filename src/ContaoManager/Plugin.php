@@ -22,13 +22,18 @@ final class Plugin implements BundlePluginInterface
 {
     public function getBundles(ParserInterface $parser): array
     {
+        $loadAfter = [
+            ContaoCoreBundle::class,
+            'notification_center',
+        ];
+
+        if (\class_exists('Veello\ThemeBundle\VeelloThemeBundle')) {
+            $loadAfter[] = \Veello\ThemeBundle\VeelloThemeBundle::class;
+        }
+
         return [
             BundleConfig::create(RhymeContaoBackendThemeBundle::class)
-                ->setLoadAfter(
-                    [
-                        ContaoCoreBundle::class, 'notification_center'
-                    ]
-                ),
+                ->setLoadAfter($loadAfter),
         ];
     }
 }
