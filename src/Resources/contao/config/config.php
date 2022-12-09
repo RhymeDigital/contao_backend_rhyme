@@ -27,4 +27,5 @@ AdjustNavItems::notificationCenter();
  */
 $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
+$GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseFrontendTemplate\FixFrontendHelperArticle', 'run'];
 
