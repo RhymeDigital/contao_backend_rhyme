@@ -40,7 +40,7 @@ class AdjustNavItems extends Controller
         // Remove the old items
         unset($GLOBALS['BE_MOD']['design']['page']);
 
-        if (!Input::get('picker') && !Input::get('popup')) {
+        if (!Input::get('picker') && !Input::get('popup') && Input::get('do') !== 'group') {
             unset($GLOBALS['BE_MOD']['content']['article']);
         }
     }
