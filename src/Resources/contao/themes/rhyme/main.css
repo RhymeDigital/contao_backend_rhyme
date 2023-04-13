@@ -1982,6 +1982,8 @@ fieldset.tl_tbox > legend, fieldset.tl_box > legend {
   left: 0;
   top: -25px;
   background-color: #fff; }
+  fieldset.tl_tbox > legend span, fieldset.tl_box > legend span {
+    white-space: nowrap; }
 
 fieldset.collapsed {
   margin-bottom: 0;
