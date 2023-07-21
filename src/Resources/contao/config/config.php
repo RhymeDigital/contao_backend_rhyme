@@ -2,30 +2,36 @@
 
 declare(strict_types=1);
 
-/**
- * Rhyme Contao Backend Theme Bundle
- *
- * Copyright (c) 2020 Rhyme.Digital
- *
- * @license LGPL-3.0+
- */
+namespace {
 
-use Contao\ArrayUtil;
-use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
+    /**
+     * Rhyme Contao Backend Theme Bundle
+     *
+     * Copyright (c) 2020 Rhyme.Digital
+     *
+     * @license LGPL-3.0+
+     */
 
-//Set global backend theme
-$GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme';
+    use Contao\ArrayUtil;
+    use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
+    use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
 
-/**
- * Back end modules
- */
-AdjustNavItems::pages();
-AdjustNavItems::notificationCenter();
+    //Set global backend theme
+    $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme';
 
-/**
- * Hooks
- */
-$GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
-$GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
-$GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseFrontendTemplate\FixFrontendHelperArticle', 'run'];
+    /**
+     * Back end modules
+     */
+    AdjustNavItems::pages();
+    AdjustNavItems::notificationCenter();
 
+    /**
+     * Hooks
+     */
+    $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
+    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
+    $GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseFrontendTemplate\FixFrontendHelperArticle', 'run'];
+    if (\Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+        $GLOBALS['TL_HOOKS']['loadLanguageFile'][]      = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile\LoadElementSets', 'run'];
+    }
+}
