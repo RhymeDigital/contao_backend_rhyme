@@ -1,9 +1,11 @@
 services:
 
-  contao.listener.store_referer:
-    class: Rhyme\ContaoBackendThemeBundle\EventListener\StoreRefererListener
+  rhyme_be.listener.copy_images_for_element_sets.php:
+    class: Rhyme\ContaoBackendThemeBundle\EventListener\CopyImagesForElementSets
     arguments:
-      - '@security.helper'
-      - '@contao.routing.scope_matcher'
+      - '@contao.framework'
+      - '%contao.web_dir%'
+      - '@filesystem'
     tags:
-      - kernel.event_listener
+      - { name: kernel.event_listener, event: contao.generate_symlinks }
+    public: true
