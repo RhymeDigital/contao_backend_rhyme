@@ -15,9 +15,13 @@ use Contao\System;
 use Contao\Widget;
 use Contao\Frontend;
 use Contao\StringUtil;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Finder\Finder;
 use Veello\ThemeBundle\Cache;
 use Veello\ThemeBundle\ElementSetManager;
+use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
+use Rhyme\ContaoBackendThemeBundle\Event\LoadElementSetsEvent;
+use Rhyme\ContaoBackendThemeBundle\Constants\Events as EventConstants;
 
 
 /**
@@ -27,31 +31,40 @@ use Veello\ThemeBundle\ElementSetManager;
 class LoadElementSets
 {
 
+    private EventDispatcherInterface $eventDispatcher;
+    private array $resourcesPath;
+
+
+    public function __construct(EventDispatcherInterface $eventDispatcher, array $resourcesPath)
+    {
+        $this->eventDispatcher = $eventDispatcher;
+        $this->resourcesPath = $resourcesPath;
+    }
+
     /**
      * @param string $strName
      * @param string $strLanguage
      * @param string $strCacheKey
      * @return void
      */
-    public static function run(string $strName, string $strLanguage, string $strCacheKey)
+    public function __invoke(string $strName, string $strLanguage, string $strCacheKey)
     {
-        //static::getAllSets();
+        if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+            $this->getAllSets();
+        }
     }
-
-
 
     /**
      * Get all element sets
      *
      * @return array
      */
-    public static function getAllSets()
+    public function getAllSets()
     {
         $cacheKey = 'element-sets';
 
         if (!Cache::has($cacheKey)) {
-            $elements = ElementSetManager::getAllSets();
-            $elements2 = [];
+            $elements = [];
 
             try
             {
@@ -59,33 +72,28 @@ class LoadElementSets
                     ->path(['config/element_sets'])
                     ->files()
                     ->name('*.php')
-                    ->in(System::getContainer()->getParameter('contao.resources_paths'))
+                    ->in($this->resourcesPath)
                 ;
 
                 if (!empty($finder) && $finder->hasResults())
                 {
                     foreach ($finder as $file){
-                        $elements2[] = include $file;
+                        $elements[] = include $file;
                     }
 
-                    $elements2 = call_user_func_array('array_merge', $elements2);
+                    $elements = \call_user_func_array('array_merge', $elements);
                 }
             }
             catch (\InvalidArgumentException $e)
             {
             }
 
-            // Merge our element sets with the original
-            $allElements = array_merge($elements, $elements2);
+            // Dispatch an event before caching
+            $event = new LoadElementSetsEvent();
+            $event->setElementSets($elements);
+            $this->eventDispatcher->dispatch($event, EventConstants::LOAD_ELEMENT_SETS);
 
-            // Insert our elements sets as the first groups
-            $i = 0;
-            foreach ($elements2 as $key=>$element) {
-                unset($allElements[$key]);
-                ArrayUtil::arrayInsert($allElements, $i++, [$key=>$element]);
-            }
-
-            Cache::set($cacheKey, $allElements);
+            Cache::set($cacheKey, $elements);
         }
 
         return Cache::get($cacheKey);

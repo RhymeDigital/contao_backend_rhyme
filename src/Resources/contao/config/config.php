@@ -14,7 +14,6 @@ namespace {
 
     use Contao\ArrayUtil;
     use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
-    use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
 
     //Set global backend theme
     $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme';
@@ -31,7 +30,4 @@ namespace {
     $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
     $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
     $GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseFrontendTemplate\FixFrontendHelperArticle', 'run'];
-    if (\Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
-        $GLOBALS['TL_HOOKS']['loadLanguageFile'][]      = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile\LoadElementSets', 'run'];
-    }
 }

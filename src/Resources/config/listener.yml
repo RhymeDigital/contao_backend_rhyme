@@ -1,6 +1,6 @@
 services:
 
-  rhyme_be.listener.copy_images_for_element_sets.php:
+  rhyme_be.listener.copy_images_for_element_sets:
     class: Rhyme\ContaoBackendThemeBundle\EventListener\CopyImagesForElementSets
     arguments:
       - '@contao.framework'
