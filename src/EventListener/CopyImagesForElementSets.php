@@ -37,8 +37,9 @@ class CopyImagesForElementSets
             EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')
         ) {
             $paths = (array)System::getContainer()->getParameter('contao.resources_paths');
-            foreach ($paths as $key=>$path)
-            {
+
+            // Remove /contao
+            foreach ($paths as $key=>$path) {
                 if (\substr($path, -7) === '/contao') {
                     $paths[$key] = \substr($path, 0, -7);
                 }
@@ -52,9 +53,16 @@ class CopyImagesForElementSets
             ;
 
             foreach ($finder as $file) {
-                $fullPath = $file->getPathInfo() . DIRECTORY_SEPARATOR .  $file->getBasename();
-                $filename = $file->getRelativePath();
-                $this->filesystem->copy($fullPath, $this->webDir . '/' . ElementSetManager::ASSETS_PATH.'/'.$filename, true);
+                $sep = \defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/';
+                $fullPath = $file->getPathInfo() . $sep .  $file->getBasename();
+                $filename = $file->getBasename();
+
+                // Don't copy Veello images
+                if (\strpos($fullPath, 'vendor/veello/theme/src') !== false) {
+                    continue;
+                }
+
+                $this->filesystem->copy($fullPath, $this->webDir . $sep . ElementSetManager::ASSETS_PATH . $sep . $filename, true);
             }
         }
     }
