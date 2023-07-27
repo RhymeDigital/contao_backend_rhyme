@@ -4,9 +4,10 @@
 
 A Contao CMS 4.x bundle that applies a custom theme to the back end of the website.
 
----
-## Veello Element Set Customizations
 <br/>
+
+## Veello Element Set Customizations
+
 
 ### <u>_Configurations_</u>
 
@@ -33,9 +34,9 @@ Add your custom element set images into an `element_sets` directory (including a
 _Examples:_
 
 ```
-src/Resources/element_sets`
+src/Resources/element_sets
 
-src/Resources/public/assets/img/element_sets`
+src/Resources/public/assets/img/element_sets
 ```
 
 **NOTE:** In order for the images to work, you need to run the `Recreate the symlinks` command via "Maintenance" > "Purge Data" in Contao.
