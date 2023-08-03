@@ -1,0 +1,25 @@
+.vee-element-set-config {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .4s;
+    margin: 0 8px 0 0;
+    opacity: 1;
+    border: 1px solid #48b0f7;
+    z-index: 9;
+    background: #48b0f7 url(../img/config-gear.svg) center center no-repeat;
+    background-size: 60%;
+}
+.element-set-preview {
+    margin: 0 10px 0 0;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+}
+.element-set-name {
+    line-height: 150%;
+}
+body.popup #main {
+    width: 100%;
+}

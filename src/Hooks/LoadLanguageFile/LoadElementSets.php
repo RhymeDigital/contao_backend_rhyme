@@ -9,16 +9,14 @@
 
 namespace Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile;
 
-use Contao\ArrayUtil;
-use Contao\Folder;
-use Contao\System;
-use Contao\Widget;
-use Contao\Frontend;
-use Contao\StringUtil;
+use Contao\ContentModel;
+use Contao\Controller;
+use Contao\Input;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Finder\Finder;
 use Veello\ThemeBundle\Cache;
-use Veello\ThemeBundle\ElementSetManager;
+use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
+use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
 use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
 use Rhyme\ContaoBackendThemeBundle\Event\LoadElementSetsEvent;
 use Rhyme\ContaoBackendThemeBundle\Constants\Events as EventConstants;
@@ -49,7 +47,8 @@ class LoadElementSets
      */
     public function __invoke(string $strName, string $strLanguage, string $strCacheKey)
     {
-        if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+        $contexts = ['page', 'article'];
+        if (\in_array(Input::get('do'), $contexts) && EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
             $this->getAllSets();
         }
     }
@@ -65,37 +64,111 @@ class LoadElementSets
 
         if (!Cache::has($cacheKey)) {
             $elements = [];
+            Controller::loadLanguageFile('veetheme');
 
-            try
-            {
-                $finder = Finder::create()
-                    ->path(['config/element_sets'])
-                    ->files()
-                    ->name('*.php')
-                    ->in($this->resourcesPath)
-                ;
-
-                if (!empty($finder) && $finder->hasResults())
-                {
-                    foreach ($finder as $file){
-                        $elements[] = include $file;
-                    }
-
-                    $elements = \call_user_func_array('array_merge', $elements);
-                }
-            }
-            catch (\InvalidArgumentException $e)
-            {
-            }
-
-            // Dispatch an event before caching
-            $event = new LoadElementSetsEvent();
-            $event->setElementSets($elements);
-            $this->eventDispatcher->dispatch($event, EventConstants::LOAD_ELEMENT_SETS);
+            $this->loadSetsFromFiles($elements);
+            $this->loadSetsFromTables($elements);
+            $this->dispatchEvent($elements);
 
             Cache::set($cacheKey, $elements);
         }
 
         return Cache::get($cacheKey);
+    }
+
+
+    /**
+     * Load element sets from config files
+     * @param array $elements
+     * @return void
+     */
+    protected function loadSetsFromFiles(array &$elements)
+    {
+        try
+        {
+            $finder = Finder::create()
+                ->path(['config/element_sets'])
+                ->files()
+                ->name('*.php')
+                ->in($this->resourcesPath)
+            ;
+
+            if (!empty($finder) && $finder->hasResults())
+            {
+                foreach ($finder as $file){
+                    $elements[] = include $file;
+                }
+
+                $elements = \call_user_func_array('array_merge', $elements);
+            }
+        }
+        catch (\InvalidArgumentException $e)
+        {
+        }
+    }
+
+
+    /**
+     * Load element sets from DCA/tables too
+     * @param array $elements
+     * @return void
+     */
+    protected function loadSetsFromTables(array &$elements)
+    {
+        // Load from DCA too - Todo: move to new function
+        if (($groups = ElementSetGroup::findAll()) !== null)
+        {
+            while ($groups->next())
+            {
+                $currentGroup = $groups->current();
+                if (!$currentGroup->alias) continue;
+
+                if (($sets = ElementSet::findByPid($currentGroup->id, ['order'=>ElementSet::getTable().".sorting"])) !== null)
+                {
+                    while ($sets->next())
+                    {
+                        $currentSet = $sets->current();
+                        if (!$currentSet->alias) continue;
+
+                        if (($contents = ContentModel::findPublishedByPidAndTable($currentSet->id, ElementSet::getTable())) !== null)
+                        {
+                            $elements[$currentGroup->alias] = $elements[$currentGroup->alias] ?? [];
+                            $elements[$currentGroup->alias][$currentSet->alias] = $elements[$currentGroup->alias][$currentSet->alias] ?? [];
+
+                            // Load the language entries too
+                            $GLOBALS['TL_LANG']['VEE']['element_sets']['group_'.$currentGroup->alias] = $currentGroup->name;
+                            $GLOBALS['TL_LANG']['VEE']['element_sets'][$currentSet->alias] = $currentSet->name;
+
+                            while ($contents->next())
+                            {
+                                $currentEl = $contents->current();
+                                $data = $currentEl->row();
+                                unset($data['id']);
+                                unset($data['pid']);
+                                unset($data['ptable']);
+                                $elements[$currentGroup->alias][$currentSet->alias][] = $data;
+                            }
+                            $contents->reset();
+                        }
+                    }
+                    $sets->reset();
+                }
+            }
+            $groups->reset();
+        }
+    }
+
+
+    /**
+     * Dispatch an event before caching
+     * @param array $elements
+     * @return void
+     */
+    protected function dispatchEvent(array &$elements)
+    {
+        $event = new LoadElementSetsEvent();
+        $event->setElementSets($elements);
+        $event = $this->eventDispatcher->dispatch($event, EventConstants::LOAD_ELEMENT_SETS);
+        $elements = $event->getElementSets();
     }
 }
