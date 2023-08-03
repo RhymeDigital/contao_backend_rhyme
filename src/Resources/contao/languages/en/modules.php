@@ -13,3 +13,4 @@
  */
 $GLOBALS['TL_LANG']['MOD']['article']                       = ['Static Content', 'Manage static content using articles and content elements.'];
 $GLOBALS['TL_LANG']['MOD']['page']                          = ['Pages', 'Manage pages, articles and content elements.'];
+$GLOBALS['TL_LANG']['MOD']['vee_element_sets']              = ['Element Sets', 'Manage Veello element sets'];
