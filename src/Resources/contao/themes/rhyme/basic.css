@@ -398,6 +398,9 @@ select[multiple] {
 ::-webkit-input-placeholder {
   padding-top: 1px; }
 
+.datepicker_bootstrap {
+  transform: translateX(-50px); }
+
 /* Submit buttons */
 .tl_submit {
   padding: 10px 15px;
