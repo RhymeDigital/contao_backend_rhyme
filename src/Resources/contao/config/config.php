@@ -44,8 +44,9 @@ namespace {
      * Hooks
      */
     $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
+    $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\FixDateSpaces', 'run'];
     $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
-    $GLOBALS['TL_HOOKS']['parseBackendTemplate'][]             = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseBackendTemplate\AdjustElementSetSelector', 'run'];
+    $GLOBALS['TL_HOOKS']['parseBackendTemplate'][]      = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseBackendTemplate\AdjustElementSetSelector', 'run'];
     $GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseFrontendTemplate\FixFrontendHelperArticle', 'run'];
 
 
