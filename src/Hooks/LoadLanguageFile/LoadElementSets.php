@@ -47,8 +47,7 @@ class LoadElementSets
      */
     public function __invoke(string $strName, string $strLanguage, string $strCacheKey)
     {
-        $contexts = ['page', 'article'];
-        if (\in_array(Input::get('do'), $contexts) && EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+        if ($strName === ContentModel::getTable() && EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
             $this->getAllSets();
         }
     }
