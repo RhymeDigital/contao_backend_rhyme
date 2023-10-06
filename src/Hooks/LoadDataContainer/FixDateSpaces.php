@@ -14,6 +14,7 @@ namespace Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer;
 use Contao\Config;
 use Contao\Input;
 use Contao\Controller;
+use Contao\System;
 
 
 /**
@@ -28,8 +29,9 @@ class FixDateSpaces extends Controller
      */
 	public function run($strTable)
 	{
-		if (TL_MODE === 'BE')
-		{
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
+
 		    if (!\is_array($GLOBALS['TL_DCA'][$strTable]['fields']))
             {
                 return;
@@ -38,7 +40,7 @@ class FixDateSpaces extends Controller
 		    foreach ($GLOBALS['TL_DCA'][$strTable]['fields'] as $key=>$data)
             {
                 // The "g" format is our main problem here (MooTools)
-                if ($data['eval']['datepicker'] && \strpos(Config::get(strval($data['eval']['rgxp']).'Format'), 'g') !== false)
+                if (isset($data['eval']['datepicker']) && \strpos(Config::get(strval($data['eval']['rgxp']).'Format'), 'g') !== false)
                 {
                     if (($strPostValue = \strval(Input::post($key))) && \strpos($strPostValue, '  ') !== false)
                     {
