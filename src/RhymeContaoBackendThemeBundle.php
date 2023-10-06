@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Rhyme\ContaoBackendThemeBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Rhyme\ContaoBackendThemeBundle\DependencyInjection\RhymeBackendExtension;
 
@@ -23,7 +24,7 @@ final class RhymeContaoBackendThemeBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new RhymeBackendExtension();
     }
