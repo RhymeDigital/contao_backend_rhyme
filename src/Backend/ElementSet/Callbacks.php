@@ -19,6 +19,7 @@ use Contao\StringUtil;
 use Contao\Database;
 use Contao\FilesModel;
 use Contao\DataContainer;
+use Rhyme\ContaoBackendThemeBundle\Helper\ElementSetHelper;
 use Veello\ThemeBundle\ElementSetManager;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 
@@ -71,18 +72,8 @@ class Callbacks
      */
     public function copySingleSRCToVeello($varValue, DataContainer $dc)
     {
-        if ($varValue &&
-            ($elementSetModel = ElementSet::findByPk($dc->id)) !== null &&
-            ($objFile = FilesModel::findByUuid($varValue)) !== null &&
-            \is_file(System::getContainer()->getParameter('kernel.project_dir') . '/' . $objFile->path)
-        ) {
-            $projectDir = System::getContainer()->getParameter('kernel.project_dir');
-            $webDir = System::getContainer()->getParameter('contao.web_dir');
-
-            $sep = \defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/';
-            $target = \str_replace($projectDir . $sep, '', $webDir . $sep . ElementSetManager::ASSETS_PATH . $sep . $elementSetModel->alias . '.png');
-
-            Files::getInstance()->copy($objFile->path, $target);
+        if ($varValue && ($elementSetModel = ElementSet::findByPk($dc->id)) !== null) {
+            ElementSetHelper::copyElementSetSingleSRCToVeello($elementSetModel);
         }
 
         return $varValue;
