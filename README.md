@@ -6,7 +6,9 @@ A Contao CMS 4.x bundle that applies a custom theme to the back end of the websi
 
 <br/>
 
-## Veello Element Set Customizations
+# Preview of the theme
+
+![Alt text](docs/sample_01.png?raw=true&v=4 "Preview 1")
 
 
 ### <u>_Configurations_</u>

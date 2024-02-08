@@ -12,16 +12,15 @@ namespace {
      * @license LGPL-3.0+
      */
 
-    use Contao\ArrayUtil;
     use Rhyme\ContaoBackendThemeBundle\Model;
     use Rhyme\ContaoBackendThemeBundle\Constants\Config;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
     use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
 
-    $blnVeelloLoaded = EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle');
+    $blnVloLoaded = EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle');
 
     //Set global backend theme
-    $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme';
+    $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme_contao_backend_theme';
 
     /**
      * Back end modules
@@ -30,7 +29,7 @@ namespace {
     AdjustNavItems::notificationCenter();
 
     // Add to Veello BE_MOD
-    if ($blnVeelloLoaded) {
+    if ($blnVloLoaded) {
         $GLOBALS['BE_MOD']['vee'][Config::BE_MOD_VLO_ELEMENT_SETS] = [
             'tables' => [
                 Model\Veello\ElementSetGroup::getTable(),
@@ -53,7 +52,7 @@ namespace {
     /**
      * Models
      */
-    if ($blnVeelloLoaded) {
+    if ($blnVloLoaded) {
         $GLOBALS['TL_MODELS'][Model\Veello\ElementSetGroup::getTable()]         = Model\Veello\ElementSetGroup::class;
         $GLOBALS['TL_MODELS'][Model\Veello\ElementSet::getTable()]              = Model\Veello\ElementSet::class;
     }
