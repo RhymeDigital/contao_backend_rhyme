@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Rhyme\ContaoBackendThemeBundle\Hooks\ParseBackendTemplate;
 
 use Contao\Controller;
-use Contao\RequestToken;
+use Contao\Database;
 use Contao\System;
 use Rhyme\ContaoBackendThemeBundle\Constants\Config;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
@@ -27,8 +27,10 @@ class AdjustElementSetSelector extends Controller
      * @param string $strTemplate
      */
     public function run($strBuffer, $strTemplate) {
+        $setTable   = ElementSet::getTable();
 
         if ($strTemplate === 'be_vee_element_set' &&
+            Database::getInstance()->tableExists($setTable) &&
             ($elementSets = ElementSet::findAll()) !== null
         ) {
             $data = [];
@@ -37,7 +39,7 @@ class AdjustElementSetSelector extends Controller
                 $params = \http_build_query([
                     'do'        => Config::BE_MOD_VLO_ELEMENT_SETS,
                     'id'        => $current->id,
-                    'table'     => ElementSet::getTable(),
+                    'table'     => $setTable,
                     'act'       => 'edit',
                     'popup'     => 1,
                     'rt'        => System::getContainer()->get('contao.csrf.token_manager')->getDefaultTokenValue(),
