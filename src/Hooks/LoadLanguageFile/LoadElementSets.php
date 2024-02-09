@@ -11,7 +11,7 @@ namespace Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile;
 
 use Contao\ContentModel;
 use Contao\Controller;
-use Contao\Input;
+use Contao\Database;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Finder\Finder;
 use Veello\ThemeBundle\Cache;
@@ -114,22 +114,27 @@ class LoadElementSets
      */
     protected function loadSetsFromTables(array &$elements)
     {
+        $groupTable = ElementSetGroup::getTable();
+        $setTable   = ElementSet::getTable();
+
         // Load from DCA too - Todo: move to new function
-        if (($groups = ElementSetGroup::findAll()) !== null)
-        {
+        if (Database::getInstance()->tableExists($groupTable) &&
+            Database::getInstance()->tableExists($setTable) &&
+            ($groups = ElementSetGroup::findAll()) !== null
+        ){
             while ($groups->next())
             {
                 $currentGroup = $groups->current();
                 if (!$currentGroup->alias) continue;
 
-                if (($sets = ElementSet::findByPid($currentGroup->id, ['order'=>ElementSet::getTable().".sorting"])) !== null)
+                if (($sets = ElementSet::findByPid($currentGroup->id, ['order'=>$setTable.".sorting"])) !== null)
                 {
                     while ($sets->next())
                     {
                         $currentSet = $sets->current();
                         if (!$currentSet->alias) continue;
 
-                        if (($contents = ContentModel::findPublishedByPidAndTable($currentSet->id, ElementSet::getTable())) !== null)
+                        if (($contents = ContentModel::findPublishedByPidAndTable($currentSet->id, $setTable)) !== null)
                         {
                             $elements[$currentGroup->alias] = $elements[$currentGroup->alias] ?? [];
                             $elements[$currentGroup->alias][$currentSet->alias] = $elements[$currentGroup->alias][$currentSet->alias] ?? [];
