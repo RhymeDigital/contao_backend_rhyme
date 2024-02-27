@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Copyright (C) 2023 Rhyme Digital, LLC.
+ * Rhyme Contao Backend Theme Bundle
  *
- * @link       https://rhyme.digital
- * @license    http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * Copyright (c) 2024 Rhyme.Digital
+ *
+ * @license LGPL-3.0+
  */
 
 namespace Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile;

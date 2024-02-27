@@ -1,14 +1,20 @@
 <?php
 
-/**
- * Copyright (C) 2021 Rhyme Digital, LLC.
- *
- * @link		https://rhyme.digital
- * @license		https://www.gnu.org/licenses/lgpl-3.0.html LGPL
- */
+namespace {
+
+    /**
+     * Rhyme Contao Backend Theme Bundle
+     *
+     * Copyright (c) 2024 Rhyme.Digital
+     *
+     * @license LGPL-3.0+
+     */
 
 
-/**
- * Paste Actions
- */
-$GLOBALS['TL_LANG']['tl_article']['pasteafter'][0] = 'Paste After';
+    /**
+     * Paste Actions
+     */
+    $GLOBALS['TL_LANG']['tl_article']['pasteafter'][0] = 'Paste After';
+
+
+}

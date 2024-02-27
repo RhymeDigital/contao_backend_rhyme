@@ -3,10 +3,11 @@
 namespace {
 
     /**
-     * Copyright (C) 2021 Rhyme Digital, LLC.
+     * Rhyme Contao Backend Theme Bundle
      *
-     * @link		https://rhyme.digital
-     * @license		http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+     * Copyright (c) 2024 Rhyme.Digital
+     *
+     * @license LGPL-3.0+
      */
 
     use Contao\Input;

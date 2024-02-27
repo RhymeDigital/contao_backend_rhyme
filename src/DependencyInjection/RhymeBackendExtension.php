@@ -1,9 +1,11 @@
 <?php
 
 /**
- * Copyright (c) 2023 Rhyme Digital LLC (https://rhyme.digital)
+ * Rhyme Contao Backend Theme Bundle
  *
- * @license LGPL-3.0-or-later
+ * Copyright (c) 2024 Rhyme.Digital
+ *
+ * @license LGPL-3.0+
  */
 
 namespace Rhyme\ContaoBackendThemeBundle\DependencyInjection;

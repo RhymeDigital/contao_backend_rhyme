@@ -2,6 +2,14 @@
 
 declare(strict_types=1);
 
+/**
+ * Rhyme Contao Backend Theme Bundle
+ *
+ * Copyright (c) 2024 Rhyme.Digital
+ *
+ * @license LGPL-3.0+
+ */
+
 namespace Rhyme\ContaoBackendThemeBundle\Constants;
 
 final class Events

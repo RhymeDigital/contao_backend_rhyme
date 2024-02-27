@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace {
 
     /**
-     * Copyright (C) 2023 Rhyme Digital, LLC.
+     * Rhyme Contao Backend Theme Bundle
      *
-     * @link		https://rhyme.digital
-     * @license		http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+     * Copyright (c) 2024 Rhyme.Digital
+     *
+     * @license LGPL-3.0+
      */
 
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
