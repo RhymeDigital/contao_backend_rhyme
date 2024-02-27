@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Rhyme Contao Backend Theme Bundle
  *
- * Copyright (c) 2020 Rhyme.Digital
+ * Copyright (c) 2024 Rhyme.Digital
  *
  * @license LGPL-3.0+
  */
@@ -29,6 +29,10 @@ final class Plugin implements BundlePluginInterface
 
         if (\class_exists('Veello\ThemeBundle\VeelloThemeBundle')) {
             $loadAfter[] = \Veello\ThemeBundle\VeelloThemeBundle::class;
+        }
+
+        if (\class_exists('Contao\ManagerBundle\ContaoManagerBundle')) {
+            $loadAfter[] = \Contao\ManagerBundle\ContaoManagerBundle::class;
         }
 
         return [

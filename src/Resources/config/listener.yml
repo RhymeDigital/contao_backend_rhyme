@@ -1,4 +1,6 @@
 services:
+  _defaults:
+    autoconfigure: true
 
   rhyme_be.listener.copy_images_for_element_sets:
     class: Rhyme\ContaoBackendThemeBundle\EventListener\CopyImagesForElementSets
@@ -8,4 +10,18 @@ services:
       - '@filesystem'
     tags:
       - { name: kernel.event_listener, event: contao.generate_symlinks }
+    public: true
+
+  rhyme_be.listener.backend_menu:
+    class: Rhyme\ContaoBackendThemeBundle\EventListener\BackendMenuListener
+    arguments:
+      - '@security.helper'
+      - '@router'
+      - '@request_stack'
+      - '@translator'
+      - '%kernel.debug%'
+      - '%contao_manager.manager_path%'
+      - '@?contao_manager.jwt_manager'
+    tags:
+      - { name: kernel.event_listener, event: contao.backend_menu_build }
     public: true

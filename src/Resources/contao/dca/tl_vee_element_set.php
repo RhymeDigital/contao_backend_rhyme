@@ -2,6 +2,14 @@
 
 namespace {
 
+    /**
+     * Rhyme Contao Backend Theme Bundle
+     *
+     * Copyright (c) 2024 Rhyme.Digital
+     *
+     * @license LGPL-3.0+
+     */
+
     use Rhyme\ContaoBackendThemeBundle\Backend\ElementSet\Callbacks;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
