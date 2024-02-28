@@ -18,7 +18,7 @@ namespace {
     $lang['name']       = ['Element set name', 'Please enter the internal element set name.'];
     $lang['tstamp']     = ['Last revision', 'Last revision'];
     $lang['alias']      = ['Alias', 'The alias is a unique reference to the element set which can be called instead of its numeric ID.'];
-    $lang['singleSRC']  = ['Preview image', 'Add a PNG preview image for backend users. REMINDER: this image must be a PNG.'];
+    $lang['singleSRC']  = ['Preview image (PNGs only)', 'Add a PNG preview image for backend users. REMINDER: this image must be a PNG.'];
 
 
     /**
