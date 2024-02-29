@@ -13,10 +13,9 @@ declare(strict_types=1);
 namespace Rhyme\ContaoBackendThemeBundle\Backend\Page;
 
 use Contao\Controller;
-use Contao\ArrayUtil;
+use Contao\System;
 use Contao\DataContainer;
 use Contao\Image;
-use Contao\Input;
 use Contao\StringUtil;
 
 /**
@@ -41,7 +40,12 @@ class Callbacks extends Controller
         }
 
         $title = sprintf($GLOBALS['TL_LANG']['MSC']['editRelatedLayout'], $dc->value);
+        $requestToken = System::getContainer()
+            ->get('contao.csrf.token_manager')
+            ->getDefaultTokenValue()
+        ;
 
-        return ' <a href="contao/main.php?do=themes&amp;table=tl_layout&amp;act=edit&amp;id=' . $dc->value . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="' . StringUtil::specialchars($title) . '" onclick="Backend.openModalIframe({\'title\':\'' . StringUtil::specialchars(str_replace("'", "\\'", $title)) . '\',\'url\':this.href});return false">' . Image::getHtml('alias.svg', $title) . '</a>';
+
+        return ' <a href="contao/main.php?do=themes&amp;table=tl_layout&amp;act=edit&amp;id=' . $dc->value . '&amp;popup=1&amp;nb=1&amp;rt=' . $requestToken . '" title="' . StringUtil::specialchars($title) . '" onclick="Backend.openModalIframe({\'title\':\'' . StringUtil::specialchars(str_replace("'", "\\'", $title)) . '\',\'url\':this.href});return false">' . Image::getHtml('alias.svg', $title) . '</a>';
     }
 }
