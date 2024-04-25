@@ -11,7 +11,6 @@ namespace {
      */
 
     use Contao\DataContainer;
-    use Contao\DC_Table;
     use Rhyme\ContaoBackendThemeBundle\Backend\ElementSetGroup\Callbacks;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
@@ -29,7 +28,7 @@ namespace {
 
             // Config
             'config' => [
-                'dataContainer' => DC_Table::class,
+                'dataContainer' => 'Table',
                 'enableVersioning' => true,
                 'switchToEdit' => true,
                 'ctable' => [ElementSet::getTable()],
