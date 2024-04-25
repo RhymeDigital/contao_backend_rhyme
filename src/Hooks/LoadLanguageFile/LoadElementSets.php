@@ -56,24 +56,18 @@ class LoadElementSets
     /**
      * Get all element sets
      *
-     * @return array
+     * @return void
      */
     public function getAllSets()
     {
         $cacheKey = 'element-sets';
 
-        if (!Cache::has($cacheKey)) {
+
             $elements = [];
             Controller::loadLanguageFile('veetheme');
-
             $this->loadSetsFromFiles($elements);
             $this->loadSetsFromTables($elements);
             $this->dispatchEvent($elements);
-
-            Cache::set($cacheKey, $elements);
-        }
-
-        return Cache::get($cacheKey);
     }
 
 
