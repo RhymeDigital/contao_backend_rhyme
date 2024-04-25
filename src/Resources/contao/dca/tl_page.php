@@ -11,7 +11,9 @@ namespace {
      */
 
     use Contao\ArrayUtil;
+    use Contao\Controller;
     use Rhyme\ContaoBackendThemeBundle\Backend\Page\Callbacks;
+    use Contao\CoreBundle\ContaoCoreBundle;
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
     $dca = &$GLOBALS['TL_DCA']['tl_page'];
@@ -20,7 +22,10 @@ namespace {
      * Operations
      */
     ArrayUtil::arrayInsert($dca['list']['operations'], 1,
-        ['editheader' => array_merge($dca['list']['operations']['edit'], ['icon'=>'header.gif'])]
+        ['editheader' =>  [
+            'href' => 'act=edit',
+            'icon' => 'header.gif'
+        ]]
     );
 
     $dca['list']['operations']['edit'] = [
@@ -30,7 +35,6 @@ namespace {
 
     unset($dca['list']['operations']['articles']);
 
-
     /**
      * Fields
      */
@@ -38,8 +42,8 @@ namespace {
         [Callbacks::class, 'editLayout']
     ];
     $dca['fields']['subpageLayout']['wizard'] = $dca['fields']['subpageLayout']['wizard'] ?? [
-            [Callbacks::class, 'editLayout']
-        ];
+        [Callbacks::class, 'editLayout']
+    ];
 
 
 }

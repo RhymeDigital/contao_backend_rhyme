@@ -25,3 +25,11 @@ services:
     tags:
       - { name: kernel.event_listener, event: contao.backend_menu_build }
     public: true
+
+  rhyme_be.listener.page_operations:
+    class: Rhyme\ContaoBackendThemeBundle\EventListener\PageOperationsListener
+    arguments:
+      - '@contao.framework'
+      - '@security.helper'
+      - '@database_connection'
+    public: true
