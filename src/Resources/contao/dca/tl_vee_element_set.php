@@ -10,8 +10,6 @@ namespace {
      * @license LGPL-3.0+
      */
 
-    use Contao\DataContainer;
-    use Contao\DC_Table;
     use Rhyme\ContaoBackendThemeBundle\Backend\ElementSet\Callbacks;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
@@ -29,7 +27,7 @@ namespace {
 
             // Config
             'config' => [
-                'dataContainer' => DC_Table::class,
+                'dataContainer' => 'Table',
                 'enableVersioning' => true,
                 'switchToEdit' => true,
                 'ptable' => ElementSetGroup::getTable(),
