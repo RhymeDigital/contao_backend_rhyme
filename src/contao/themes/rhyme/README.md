@@ -1,1 +1,0 @@
-NOTE: this file is here so Contao 5 will load the asset package properly
