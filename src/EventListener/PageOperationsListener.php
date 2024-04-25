@@ -16,6 +16,7 @@ use Contao\CoreBundle\DataContainer\DataContainerOperation;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\DataContainer;
 use Doctrine\DBAL\Connection;
 use Symfony\Bundle\SecurityBundle\Security;
 
@@ -29,25 +30,30 @@ class PageOperationsListener
     ) {
     }
 
-    #[AsHook('loadDataContainer', priority: 400)]
     public function adjustArticleGlobalOperations(string $table): void
     {
-        if($table === 'tl_article') {
-            $dca = &$GLOBALS['TL_DCA']['tl_article'];
-            $dca['list']['global_operations'] = [
-                'all',
-            ];
-        }
-
         if($table === 'tl_page') {
             unset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles']);
         }
     }
 
-    #[AsCallback(table: 'tl_page', target: 'list.operations.articles.button', priority: 400)]
-    public function adjustPageOperations(DataContainerOperation $operation): void
+    public function adjustPageOperations(
+        array $row,
+        ?string $href,
+        string $label,
+        string $title,
+        ?string $icon,
+        string $attributes,
+        string $table,
+        array $rootRecordIds,
+        ?array $childRecordIds,
+        bool $circularReference,
+        ?string $previous,
+        ?string $next,
+        DataContainer $dc
+    ): string
     {
-        $operation->disable();
         unset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles']);
+        return '';
     }
 }
