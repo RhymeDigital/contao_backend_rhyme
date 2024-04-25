@@ -26,10 +26,12 @@ services:
       - { name: kernel.event_listener, event: contao.backend_menu_build }
     public: true
 
-  rhyme_be.listener.page_operations:
-    class: Rhyme\ContaoBackendThemeBundle\EventListener\PageOperationsListener
+  Rhyme\ContaoBackendThemeBundle\EventListener\PageOperationsListener:
     arguments:
       - '@contao.framework'
       - '@security.helper'
       - '@database_connection'
+    tags:
+      - { name: contao.hook, hook: loadDataContainer, method: adjustArticleGlobalOperations, priority: 400 }
+      - { name: contao.callback, table: tl_page, target: list.operations.articles.button, method: adjustPageOperations, priority: 400 }
     public: true
