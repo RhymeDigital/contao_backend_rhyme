@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Rhyme\ContaoBackendThemeBundle\EventListener;
 
+use Contao\ArrayUtil;
 use Contao\CoreBundle\DataContainer\DataContainerOperation;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
@@ -32,9 +33,7 @@ class PageOperationsListener
 
     public function adjustArticleGlobalOperations(string $table): void
     {
-        if($table === 'tl_page') {
-            unset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles']);
-        }
+
     }
 
     public function adjustPageOperations(
@@ -53,7 +52,20 @@ class PageOperationsListener
         DataContainer $dc
     ): string
     {
-        unset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles']);
+
+        $dca = &$GLOBALS['TL_DCA']['tl_page'];
+        ArrayUtil::arrayInsert($dca['list']['operations'], 1,
+            ['editheader' =>  [
+                'href' => 'act=edit',
+                'icon' => 'header.gif'
+            ]]
+        );
+
+        $dca['list']['operations']['edit'] = [
+            'href'                => 'table=tl_article',
+            'icon'                => 'edit.gif'
+        ];
+
         return '';
     }
 }

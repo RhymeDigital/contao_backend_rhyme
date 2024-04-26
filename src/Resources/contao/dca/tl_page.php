@@ -16,11 +16,11 @@ namespace {
     use Contao\CoreBundle\ContaoCoreBundle;
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
-//    $dca = &$GLOBALS['TL_DCA']['tl_page'];
-//
-//    /**
-//     * Operations
-//     */
+    $dca = &$GLOBALS['TL_DCA']['tl_page'];
+
+    /**
+     * Operations
+     */
 //    ArrayUtil::arrayInsert($dca['list']['operations'], 1,
 //        ['editheader' =>  [
 //            'href' => 'act=edit',

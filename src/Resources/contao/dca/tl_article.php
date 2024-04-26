@@ -17,7 +17,6 @@ namespace {
     /**
      * List
      */
-
     if (!Input::get('picker') && !Input::get('popup') && Input::get('do') !== 'group') {
         $GLOBALS['TL_DCA']['tl_article']['list']['sorting'] = array
         (
