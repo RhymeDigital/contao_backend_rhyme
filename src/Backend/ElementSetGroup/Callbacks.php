@@ -44,7 +44,7 @@ class Callbacks
         // Generate alias if there is none
         if (!$varValue)
         {
-            $varValue = System::getContainer()->get('contao.slug')->generate($dc->activeRecord->name, null, $aliasExists);
+            $varValue = System::getContainer()->get('contao.slug')->generate($dc->activeRecord->name, [], $aliasExists);
         }
         elseif (preg_match('/^[1-9]\d*$/', $varValue))
         {

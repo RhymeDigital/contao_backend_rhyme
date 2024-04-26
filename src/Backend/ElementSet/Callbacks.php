@@ -19,8 +19,9 @@ use Contao\StringUtil;
 use Contao\Database;
 use Contao\FilesModel;
 use Contao\DataContainer;
+use Contao\Image\ResizeConfiguration;
+use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
 use Rhyme\ContaoBackendThemeBundle\Helper\ElementSetHelper;
-use Veello\ThemeBundle\ElementSetManager;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 
 /**
@@ -50,7 +51,7 @@ class Callbacks
         // Generate alias if there is none
         if (!$varValue)
         {
-            $varValue = System::getContainer()->get('contao.slug')->generate($dc->activeRecord->name, null, $aliasExists);
+            $varValue = System::getContainer()->get('contao.slug')->generate($dc->activeRecord->name, [], $aliasExists);
         }
         elseif (preg_match('/^[1-9]\d*$/', $varValue))
         {
@@ -104,7 +105,8 @@ class Callbacks
      */
     public static function generateImage(ElementSet $elementSetModel) : string
     {
-        $strImage = ElementSetManager::DUMMY_IMAGE_PATH;
+        $strImage = Veello::ELEMENT_SET_DUMMY_IMAGE_PATH;
+        $projectDir = System::getContainer()->getParameter('kernel.project_dir');
 
         if ($elementSetModel->singleSRC &&
             ($objFile = FilesModel::findByUuid($elementSetModel->singleSRC)) !== null &&
@@ -117,7 +119,7 @@ class Callbacks
         /** @noinspection HtmlUnknownTarget */
         return sprintf(
             '<div class="element-set-preview"><img src="%s" alt="%s" width="150" height="75"></div>',
-            Image::get($strImage, 150, 75, 'crop'),
+            System::getContainer()->get('contao.image.factory')->create($projectDir . '/' . $strImage, array(150, 75, ResizeConfiguration::MODE_BOX))->getUrl($projectDir),
             StringUtil::specialchars($elementSetModel->name)
         );
     }

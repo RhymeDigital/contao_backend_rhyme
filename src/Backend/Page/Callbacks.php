@@ -45,7 +45,6 @@ class Callbacks extends Controller
             ->getDefaultTokenValue()
         ;
 
-
         return ' <a href="contao/main.php?do=themes&amp;table=tl_layout&amp;act=edit&amp;id=' . $dc->value . '&amp;popup=1&amp;nb=1&amp;rt=' . $requestToken . '" title="' . StringUtil::specialchars($title) . '" onclick="Backend.openModalIframe({\'title\':\'' . StringUtil::specialchars(str_replace("'", "\\'", $title)) . '\',\'url\':this.href});return false">' . Image::getHtml('alias.svg', $title) . '</a>';
     }
 }
