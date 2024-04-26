@@ -12,6 +12,7 @@ namespace {
      * @license LGPL-3.0+
      */
 
+    use Contao\ContentModel;
     use Rhyme\ContaoBackendThemeBundle\Model;
     use Rhyme\ContaoBackendThemeBundle\Constants\Config;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
@@ -34,7 +35,7 @@ namespace {
             'tables' => [
                 Model\Veello\ElementSetGroup::getTable(),
                 Model\Veello\ElementSet::getTable(),
-                \Contao\ContentModel::getTable(),
+                ContentModel::getTable(),
             ],
         ];
     }

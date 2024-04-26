@@ -15,8 +15,8 @@ namespace Rhyme\ContaoBackendThemeBundle\Helper;
 use Contao\Files;
 use Contao\FilesModel;
 use Contao\System;
+use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
-use Veello\ThemeBundle\ElementSetManager;
 
 class ElementSetHelper
 {
@@ -34,7 +34,7 @@ class ElementSetHelper
             $webDir = System::getContainer()->getParameter('contao.web_dir');
 
             $sep = \defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/';
-            $target = \str_replace($projectDir . $sep, '', $webDir . $sep . ElementSetManager::ASSETS_PATH . $sep . ($elementSet->alias ?: 'rhyme_set_' . $elementSet->id) . '.png');
+            $target = \str_replace($projectDir . $sep, '', $webDir . $sep . Veello::ELEMENT_SET_MANAGER_ASSETS_PATH . $sep . ($elementSet->alias ?: 'rhyme_set_' . $elementSet->id) . '.png');
 
             Files::getInstance()->copy($objFile->path, $target);
         }
