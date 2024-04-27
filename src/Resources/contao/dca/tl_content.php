@@ -14,11 +14,17 @@ namespace {
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 
+    // Hide the "New element set" button if we're in the element set editor area
     if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle') &&
         Input::get('ptable') === ElementSet::getTable()
     ) {
         $GLOBALS['TL_DCA']['tl_content']['list']['sorting']['headerFields'] = ['name', 'tstamp'];
-        unset($GLOBALS['TL_DCA']['tl_content']['list']['global_operations']['vee_set']);
+        $GLOBALS['TL_DCA']['tl_content']['list']['global_operations']['vee_set'] = [
+            'href'          => '',
+            'class'         => '',
+            'label'         => '',
+            'attributes'    => ' style="display:none;"',
+        ];
         // Todo: set up permissions check adjustment
     }
 }
