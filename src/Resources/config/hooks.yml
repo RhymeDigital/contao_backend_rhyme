@@ -1,8 +1,1 @@
 services:
-
-  Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile\LoadElementSets:
-    arguments:
-      - '@event_dispatcher'
-      - '%contao.resources_paths%'
-    tags:
-      - { name: contao.hook, hook: loadLanguageFile }

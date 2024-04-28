@@ -26,6 +26,17 @@ services:
       - { name: kernel.event_listener, event: contao.backend_menu_build }
     public: true
 
+  rhyme_be.listener.load_element_sets:
+    class: Rhyme\ContaoBackendThemeBundle\EventListener\LoadElementSets
+    arguments:
+      - '@event_dispatcher'
+      - '%contao.resources_paths%'
+      - '@contao.framework'
+      - '@filesystem'
+    tags:
+      - { name: kernel.event_listener, priority: 333 }
+    public: true
+
   Rhyme\ContaoBackendThemeBundle\EventListener\PageOperationsListener:
     arguments:
       - '@contao.framework'

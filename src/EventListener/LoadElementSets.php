@@ -8,15 +8,17 @@
  * @license LGPL-3.0+
  */
 
-namespace Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile;
+namespace Rhyme\ContaoBackendThemeBundle\EventListener;
 
 use Contao\ContentModel;
 use Contao\Controller;
 use Contao\Database;
 use Contao\System;
+use Contao\CoreBundle\Framework\ContaoFramework;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
-use Veello\ThemeBundle\Cache;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
 use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
@@ -35,27 +37,36 @@ class LoadElementSets
 
     protected EventDispatcherInterface $eventDispatcher;
     protected array $resourcesPath;
+    private ContaoFramework $framework;
+    protected $cacheWarmer;
     private const CACHE_PATH = 'element_sets.php';
+    private Filesystem $filesystem;
 
 
-    public function __construct(EventDispatcherInterface $eventDispatcher, array $resourcesPath) {
+    public function __construct(
+        EventDispatcherInterface $eventDispatcher,
+        array $resourcesPath,
+        ContaoFramework $framework,
+        Filesystem $filesystem
+    ) {
         $this->eventDispatcher = $eventDispatcher;
         $this->resourcesPath = $resourcesPath;
+        $this->framework = $framework;
+        $this->filesystem = $filesystem;
     }
 
     /**
-     * @param string $strName
-     * @param string $strLanguage
-     * @param string $strCacheKey
      * @return void
      */
-    public function __invoke(string $strName, string $strLanguage, string $strCacheKey)
+    public function __invoke(RequestEvent $event)
     {
-//        if ($strName === ContentModel::getTable() && EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
-//            var_dump(System::getContainer()->initialized('vee_memory.cache'));
-//            var_dump(System::getContainer()->has('Veello\ThemeBundle\Cache\Serializer\CacheWarmer')); exit;
-//            $this->getAllSets();
-//        }
+        if (!$this->framework->isInitialized()) {
+            $this->framework->initialize();
+        }
+
+        if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+            $this->getAllSets();
+        }
     }
 
     /**
@@ -70,6 +81,8 @@ class LoadElementSets
         $this->loadSetsFromFiles($elements);
         $this->loadSetsFromTables($elements);
         $this->dispatchEvent($elements);
+
+        $this->cacheWarmer = new CacheWarmer($this->filesystem, self::CACHE_PATH);
         $this->cacheWarmer->dumpFile(self::CACHE_PATH, $elements);
     }
 
