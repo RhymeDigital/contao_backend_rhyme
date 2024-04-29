@@ -13,6 +13,7 @@ namespace Rhyme\ContaoBackendThemeBundle\EventListener;
 use Contao\CoreBundle\Event\GenerateSymlinksEvent;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\System;
+use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
 use Rhyme\ContaoBackendThemeBundle\Helper\ElementSetHelper;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 use Symfony\Component\Filesystem\Path;
@@ -52,7 +53,7 @@ class CopyImagesForElementSets
     public function __invoke(GenerateSymlinksEvent $event)
     {
         if ($this->framework->isInitialized() &&
-            EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')
+            EnvironmentHelper::isVeelloLoaded()
         ) {
             $this->copyFilesFromElementSetsConfigFolders();
             $this->copyFilesFromElementSetRecords();
@@ -90,7 +91,7 @@ class CopyImagesForElementSets
                 continue;
             }
 
-            $this->filesystem->copy($fullPath, $this->webDir . $sep . ElementSetManager::ASSETS_PATH . $sep . $filename, true);
+            $this->filesystem->copy($fullPath, $this->webDir . $sep . Veello::ELEMENT_SET_MANAGER_ASSETS_PATH . $sep . $filename, true);
         }
     }
 

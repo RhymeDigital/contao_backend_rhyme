@@ -16,6 +16,7 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
 use Rhyme\ContaoBackendThemeBundle\RhymeContaoBackendThemeBundle;
 
 final class Plugin implements BundlePluginInterface
@@ -27,7 +28,7 @@ final class Plugin implements BundlePluginInterface
             'notification_center',
         ];
 
-        if (\class_exists('Veello\ThemeBundle\VeelloThemeBundle')) {
+        if (\class_exists(Veello::VEELLO_BUNDLE)) {
             $loadAfter[] = \Veello\ThemeBundle\VeelloThemeBundle::class;
         }
 

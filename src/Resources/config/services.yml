@@ -1,0 +1,7 @@
+services:
+  _defaults:
+    autoconfigure: true
+
+  rhyme_be.environment_helper:
+    class: Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper
+    public: true

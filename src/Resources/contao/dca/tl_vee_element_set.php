@@ -13,6 +13,7 @@ namespace {
     use Contao\DataContainer;
     use Contao\DC_Table;
     use Rhyme\ContaoBackendThemeBundle\Backend\ElementSet\Callbacks;
+    use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
@@ -132,7 +133,7 @@ namespace {
                 (
                     'exclude'                 => true,
                     'inputType'               => 'fileTree',
-                    'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr', 'extensions'=>'png'),
+                    'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr', 'extensions'=>'svg'),
                     'sql'                     => "binary(16) NULL",
                     'save_callback'           => [
                         [Callbacks::class, 'copySingleSRCToVeello']
@@ -142,7 +143,7 @@ namespace {
         ];
     }
 
-    if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+    if (EnvironmentHelper::isVeelloLoaded()) {
         initRhymeVeelloThemeElementSets();
     }
 }

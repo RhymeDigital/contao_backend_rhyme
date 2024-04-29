@@ -17,8 +17,15 @@ final class Veello
     /**
      * @var string
      */
-    public const ELEMENT_SET_MANAGER_ASSETS_PATH = 'bundles/veellotheme/contao/config/element_sets';
+    public const ELEMENT_SET_MANAGER_ASSETS_PATH = 'bundles/veellotheme/backend/element_sets';
 
+    /**
+     * @var string
+     */
+    public const ELEMENT_SET_DUMMY_IMAGE_PATH = '{{vee-dummy-image}}';
 
-    public const ELEMENT_SET_DUMMY_IMAGE_PATH = 'bundles/veellotheme/contao/config/element_sets';
+    /**
+     * @var string
+     */
+    public const VEELLO_BUNDLE = 'Veello\ThemeBundle\VeelloThemeBundle';
 }

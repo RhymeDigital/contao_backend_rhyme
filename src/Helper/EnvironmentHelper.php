@@ -13,9 +13,20 @@ declare(strict_types=1);
 namespace Rhyme\ContaoBackendThemeBundle\Helper;
 
 use Contao\System;
+use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
 
 class EnvironmentHelper
 {
+
+    /**
+     * Return true if Veello is loaded
+     *
+     * @return bool
+     */
+    public static function isVeelloLoaded() : bool
+    {
+        return static::isBundleLoaded(Veello::VEELLO_BUNDLE);
+    }
 
     /**
      * Return true if the bundle is loaded
@@ -38,7 +49,7 @@ class EnvironmentHelper
      */
     public static function isModuleLoaded($module)
     {
-        return array_key_exists($module, static::getContainer()->getParameter('kernel.bundles'));
+        return array_key_exists($module, System::getContainer()->getParameter('kernel.bundles'));
     }
 
 }
