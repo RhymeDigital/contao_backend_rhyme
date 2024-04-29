@@ -40,7 +40,7 @@
     text-decoration:underline;
 }
 .tl_formbody_edit {
-    padding-bottom: 40px;
+    padding-bottom: 10px;
 }
 .tl_formbody_edit.nogrid .w50 {
     float:none;
@@ -53,12 +53,10 @@
     border-top:1px solid #e6e6e8;
 }
 .tl_formbody_submit {
-    border-top:1px solid #ddd;
-    position: fixed;
+    border-top: 1px solid var(--content-border);
+    position: sticky;
     bottom: 0;
-    right: 0;
-    z-index: 100000;
-    width:calc(100% - 225px);
+    z-index: 3; /* Above TinyMCE */
 }
 .tl_submit_container {
     padding:8px 15px;

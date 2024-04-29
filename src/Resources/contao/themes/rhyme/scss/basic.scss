@@ -2,6 +2,7 @@
 @import "_globals/colors";
 @import "_globals/mixins";
 
+@import "basic/appearance";
 @import "basic/general";
 @import "basic/fonts";
 @import "basic/elements";
@@ -17,4 +18,3 @@
 @import "basic/tips";
 @import "basic/rowHighlighting";
 @import "basic/simpleModal";
-@import "basic/darkMode";

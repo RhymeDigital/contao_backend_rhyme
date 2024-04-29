@@ -1,11 +1,14 @@
 /* Main */
 #main {
-    float:left;
     width:calc(100% - 225px);
     min-height:calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
 
     .content {
-        margin:15px;
+        margin: 15px;
+        background: var(--content-bg);
+        border: 1px solid var(--content-border);
     }
 }
 .popup #main {

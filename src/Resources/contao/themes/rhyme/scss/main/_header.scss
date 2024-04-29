@@ -3,10 +3,8 @@
     min-height:40px;
     text-align:left;
     color:#fff;
+    background: var(--header-bg);
 
-    .inner {
-        background: $contaoOrange;
-    }
     a {
         color:#fff;
     }
@@ -14,20 +12,24 @@
         position:absolute;
 
         a {
-            font: $contaoFont;
-            display:block;
-            padding:12px 12px 12px 43px;
-            background:url("icons/logo.svg") no-repeat 10px center;
-            font-weight:400;
+            display: block;
+            height: 20px;
+            padding: 12px 12px 12px 42px;
+            background: var(--icon-logo) no-repeat 10px center;
+            font-weight: 400;
+
+            .app-title {
+                color: var(--header-text);
+            }
         }
     }
 }
 
-body:not(.fullscreen) #header .inner {
-    max-width: 1440px;
-    margin:0 auto;
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #header h1 a {
+        font-weight: 300;
+    }
 }
-
 
 #tmenu {
     display:flex;
@@ -49,22 +51,20 @@ body:not(.fullscreen) #header .inner {
         left:20px;
         z-index:1;
         font-size:.6rem;
-        background:#fff;
         padding:2px;
         border-radius:2px;
         text-indent:0;
-        color: $contaoOrange;
+        color: var(--header-bg);
+        background: var(--header-text);
         font-weight:400;
     }
     .burger {
         display:none;
 
         button {
-            margin-right:-2px;
-            padding:8px 10px 9px;
-            background:none;
-            border:0;
-            vertical-align:top;
+            padding: 8px 10px 9px;
+            background: none;
+            border: 0;
         }
         svg {
             margin-bottom:-1px;
@@ -80,23 +80,24 @@ body:not(.fullscreen) #header .inner {
         color:#fff;
     }
     .profile {
+        padding-top: 1px;
+        display: inline-block;
         
         button {
             position: relative;
-            cursor:pointer;
-            font-size:1rem;
-            font-weight:400;
-            color:#fff;
-            border:none;
-            padding-right:26px;
+            cursor: pointer;
+            font-weight: 400;
+            border: none;
+            padding-right: 26px;
             background:url("icons/chevron-down.svg") right 9px top 14px no-repeat;
         }
     }
     a, .h2, .burger button {
+        color: var(--header-text);
         transition:background-color .3s ease;
     }
     a:hover, a.hover,li:hover .h2,.active .h2, .burger button:hover {
-        background-color: $contaoOrangeHover;
+        background-color: var(--header-bg-hover);
     }
 
     ul.menu_level_1 {
@@ -149,17 +150,21 @@ body:not(.fullscreen) #header .inner {
         right:9px;
         top:-14px;
         border:7px solid transparent;
-        border-bottom-color:#fff;
+        border-bottom-color: var(--content-bg);
     }
     ul.menu_level_1:after {
-        content:"";
-        display:block;
-        width:100%;
-        height:5px;
+        content: "";
+        display: block;
+        width: 9px;
+        height: 9px;
         position: absolute;
-        top:-5px;
+        top: -6px;
+        right: 11px;
+        border-top: 1px solid var(--content-border);
+        border-right: 1px solid var(--content-border);
+        transform: rotateZ(-45deg);
     }
-    .icon-alert, .icon-manual {
+    .icon-alert, .icon-manual, .icon-favorite, .icon-color-scheme {
         width:16px;
         margin-bottom:-2px;
         position:relative;
@@ -168,17 +173,38 @@ body:not(.fullscreen) #header .inner {
         white-space:nowrap;
         text-indent:28px; /* 16px width + 12px padding */
     }
+    .icon-alert {
+        background: var(--icon-alert) center center no-repeat;
+    }
+    .icon-favorite {
+        background: var(--icon-favorite) center center no-repeat;
+    }
+    .icon-favorite--active {
+        background: var(--icon-favorite--active) center center no-repeat;
+    }
     .icon-manual {
-        background: url("icons/manual.svg") center center no-repeat;
+        background: var(--icon-manual) center center no-repeat;
+    }
+    .icon-color-scheme {
+        background: var(--icon-color-scheme) center center no-repeat;
     }
     .icon-profile {
-        background:url("icons/profile_dark.svg") 20px center no-repeat;
+        background: var(--icon-profile) 20px center no-repeat;
     }
     .icon-security {
-        background:url("icons/shield_dark.svg") 20px center no-repeat;
+        background: var(--icon-security) 20px center no-repeat;
+    }
+    .icon-favorites {
+        background: var(--icon-favorites) 20px center no-repeat;
     }
     .icon-logout {
-        background:url("icons/exit_dark.svg") 20px center no-repeat;
+        background: var(--icon-logout) 20px center no-repeat;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #tmenu .profile button {
+        font-weight: 300;
     }
 }
 

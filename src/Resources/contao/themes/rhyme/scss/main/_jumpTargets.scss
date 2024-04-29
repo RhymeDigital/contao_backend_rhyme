@@ -1,0 +1,57 @@
+/* Jump targets */
+.jump-targets {
+    min-height: 30px;
+    padding-top: 1px;
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--content-border);
+    position: sticky;
+    top: 0;
+    z-index: 3; /* Above TinyMCE */
+
+    .inner {
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+
+    .inner::-webkit-scrollbar {
+        display: none;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        white-space: nowrap;
+    }
+
+    li {
+        display: inline-block;
+        padding: 9px 10px;
+        white-space: nowrap;
+        font-size: .75rem;
+    }
+
+    button {
+        padding: 0;
+        background: none;
+        border: none;
+    }
+
+    :before, :after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+
+    :before {
+        /*background: linear-gradient(-90deg, transparent 0, var(--panel-bg) 50%);*/
+    }
+
+    :after {
+        right: 0;
+        background: linear-gradient(90deg, transparent 0, var(--panel-bg) 50%);
+    }
+}
