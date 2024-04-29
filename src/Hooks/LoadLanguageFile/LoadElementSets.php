@@ -12,8 +12,12 @@ namespace Rhyme\ContaoBackendThemeBundle\Hooks\LoadLanguageFile;
 
 use Contao\ContentModel;
 use Contao\Controller;
+use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\Database;
+use Contao\System;
+use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Veello\ThemeBundle\Cache;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
@@ -21,6 +25,8 @@ use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
 use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
 use Rhyme\ContaoBackendThemeBundle\Event\LoadElementSetsEvent;
 use Rhyme\ContaoBackendThemeBundle\Constants\Events as EventConstants;
+use Veello\ThemeBundle\Cache\Serializer\CacheWarmer;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 
 /**
@@ -30,14 +36,31 @@ use Rhyme\ContaoBackendThemeBundle\Constants\Events as EventConstants;
 class LoadElementSets
 {
 
-    private EventDispatcherInterface $eventDispatcher;
-    private array $resourcesPath;
+    protected EventDispatcherInterface $eventDispatcher;
+    protected array $resourcesPath;
 
 
-    public function __construct(EventDispatcherInterface $eventDispatcher, array $resourcesPath)
-    {
+    private ContaoFramework $framework;
+    protected $cacheWarmer;
+    private Filesystem $filesystem;
+    protected string $cacheDir;
+    protected EnvironmentHelper $environmentHelper;
+    protected const CACHE_PATH = 'element_sets.php';
+
+    public function __construct(
+        EventDispatcherInterface $eventDispatcher,
+        array $resourcesPath,
+        ContaoFramework $framework,
+        Filesystem $filesystem,
+        string $cacheDir,
+        EnvironmentHelper $environmentHelper
+    ) {
         $this->eventDispatcher = $eventDispatcher;
         $this->resourcesPath = $resourcesPath;
+        $this->framework = $framework;
+        $this->filesystem = $filesystem;
+        $this->cacheDir = $cacheDir;
+        $this->environmentHelper = $environmentHelper;
     }
 
     /**
@@ -48,7 +71,7 @@ class LoadElementSets
      */
     public function __invoke(string $strName, string $strLanguage, string $strCacheKey)
     {
-        if ($strName === ContentModel::getTable() && EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+        if ($strName === ContentModel::getTable() && EnvironmentHelper::isVeelloLoaded()) {
             $this->getAllSets();
         }
     }
@@ -60,14 +83,15 @@ class LoadElementSets
      */
     public function getAllSets()
     {
-        $cacheKey = 'element-sets';
+        Controller::loadLanguageFile('veetheme');
 
+        $elements = [];
+        $this->loadSetsFromFiles($elements);
+        $this->loadSetsFromTables($elements);
+        $this->dispatchEvent($elements);
 
-            $elements = [];
-            Controller::loadLanguageFile('veetheme');
-            $this->loadSetsFromFiles($elements);
-            $this->loadSetsFromTables($elements);
-            $this->dispatchEvent($elements);
+        $this->cacheWarmer = new CacheWarmer($this->filesystem, $this->cacheDir);
+        $this->cacheWarmer->dumpFile(self::CACHE_PATH, $elements);
     }
 
 
@@ -145,6 +169,13 @@ class LoadElementSets
                                 unset($data['id']);
                                 unset($data['pid']);
                                 unset($data['ptable']);
+
+                                // Veello only allows arrays or string values
+                                foreach ($data as $key=>$value) {
+                                    if (!is_array($value) && !is_string($value)) {
+                                        $data[$key] = '0';
+                                    }
+                                }
                                 $elements[$currentGroup->alias][$currentSet->alias][] = $data;
                             }
                             $contents->reset();

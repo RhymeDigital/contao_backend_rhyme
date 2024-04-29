@@ -70,10 +70,18 @@ class Callbacks
      * @param $varValue
      * @param DataContainer $dc
      * @return mixed
+     * @throws \Exception
      */
     public function copySingleSRCToVeello($varValue, DataContainer $dc)
     {
         if ($varValue && ($elementSetModel = ElementSet::findByPk($dc->id)) !== null) {
+
+            // Always generate the alias first so we create the correct file name
+            if (!$elementSetModel->alias) {
+                $elementSetModel->alias = static::generateAlias($elementSetModel->alias, $dc);
+            }
+
+            $elementSetModel->singleSRC = $varValue;
             ElementSetHelper::copyElementSetSingleSRCToVeello($elementSetModel);
         }
 

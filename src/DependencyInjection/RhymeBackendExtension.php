@@ -38,6 +38,7 @@ class RhymeBackendExtension extends Extension
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
         );
+        $loader->load('services.yml');
         $loader->load('listener.yml');
         $loader->load('hooks.yml');
     }

@@ -11,11 +11,12 @@ namespace {
      */
 
     use Contao\Input;
+    use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 
     // Hide the "New element set" button if we're in the element set editor area
-    if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle') &&
+    if (EnvironmentHelper::isVeelloLoaded() &&
         Input::get('ptable') === ElementSet::getTable()
     ) {
         $GLOBALS['TL_DCA']['tl_content']['list']['sorting']['headerFields'] = ['name', 'tstamp'];

@@ -13,12 +13,13 @@ namespace {
      */
 
     use Contao\ContentModel;
+    use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
     use Rhyme\ContaoBackendThemeBundle\Model;
     use Rhyme\ContaoBackendThemeBundle\Constants\Config;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
     use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
 
-    $blnVloLoaded = EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle');
+    $blnVloLoaded = EnvironmentHelper::isVeelloLoaded();
 
     //Set global backend theme
     $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme_contao_backend_theme';

@@ -13,6 +13,7 @@ namespace {
     use Contao\DataContainer;
     use Contao\DC_Table;
     use Rhyme\ContaoBackendThemeBundle\Backend\ElementSetGroup\Callbacks;
+    use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
     use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSetGroup;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
@@ -124,7 +125,7 @@ namespace {
         ];
     }
 
-    if (EnvironmentHelper::isBundleLoaded('Veello\ThemeBundle\VeelloThemeBundle')) {
+    if (EnvironmentHelper::isVeelloLoaded()) {
         initRhymeVeelloThemeElementSetGroups();
     }
 }

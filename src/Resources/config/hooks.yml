@@ -4,5 +4,9 @@ services:
     arguments:
       - '@event_dispatcher'
       - '%contao.resources_paths%'
+      - '@contao.framework'
+      - '@filesystem'
+      - '%kernel.cache_dir%'
+      - '@rhyme_be.environment_helper'
     tags:
       - { name: contao.hook, hook: loadLanguageFile }

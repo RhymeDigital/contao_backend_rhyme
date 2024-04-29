@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Rhyme\ContaoBackendThemeBundle\Helper;
 
+use Contao\Dbafs;
 use Contao\Files;
 use Contao\FilesModel;
 use Contao\System;
@@ -34,7 +35,7 @@ class ElementSetHelper
             $webDir = System::getContainer()->getParameter('contao.web_dir');
 
             $sep = \defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/';
-            $target = \str_replace($projectDir . $sep, '', $webDir . $sep . Veello::ELEMENT_SET_MANAGER_ASSETS_PATH . $sep . ($elementSet->alias ?: 'rhyme_set_' . $elementSet->id) . '.png');
+            $target = \str_replace($projectDir . $sep, '', $webDir . $sep . Veello::ELEMENT_SET_MANAGER_ASSETS_PATH . $sep . ($elementSet->alias ?: 'rhyme_set_' . $elementSet->id) . '.svg');
 
             Files::getInstance()->copy($objFile->path, $target);
         }
