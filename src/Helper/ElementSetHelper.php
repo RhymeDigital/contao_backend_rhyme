@@ -36,8 +36,10 @@ class ElementSetHelper
 
             $sep = \defined('DIRECTORY_SEPARATOR') ? DIRECTORY_SEPARATOR : '/';
             $target = \str_replace($projectDir . $sep, '', $webDir . $sep . Veello::ELEMENT_SET_MANAGER_ASSETS_PATH . $sep . ($elementSet->alias ?: 'rhyme_set_' . $elementSet->id) . '.svg');
+            $targetDark = \str_replace($projectDir . $sep, '', $webDir . $sep . Veello::ELEMENT_SET_MANAGER_ASSETS_PATH . $sep . ($elementSet->alias ?: 'rhyme_set_' . $elementSet->id) . '--dark.svg');
 
             Files::getInstance()->copy($objFile->path, $target);
+            Files::getInstance()->copy($objFile->path, $targetDark);
         }
     }
 
