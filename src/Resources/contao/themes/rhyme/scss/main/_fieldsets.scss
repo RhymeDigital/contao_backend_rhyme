@@ -9,13 +9,14 @@ fieldset.tl_tbox,fieldset.tl_box {
     border-left:0;
     border-right:0;
     position: relative;
+    border-bottom: 1px solid var(--border);
 }
 fieldset.tl_tbox.nolegend,fieldset.tl_box.nolegend {
     border-top:0;
 }
 fieldset.tl_tbox > legend,fieldset.tl_box > legend {
     box-sizing:border-box;
-    color: $contaoOrange;
+    color: var(--legend);
     font-weight: 700;
     padding:9px 12px 9px 28px;
     background:url("icons/navcol.svg") 13px 15px no-repeat;
@@ -23,7 +24,7 @@ fieldset.tl_tbox > legend,fieldset.tl_box > legend {
     position: absolute;
     left: 0;
     top: -25px;
-    background-color: #fff;
+    background-color: var(--body-bg);
 
     span {
         white-space: nowrap;

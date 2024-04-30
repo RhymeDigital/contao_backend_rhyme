@@ -3,7 +3,7 @@
 
 /* Two-factor */
 .two-factor {
-    border-top:1px solid #e6e6e8;
+    border-top: 1px solid var(--border);
     padding-bottom:9px;
 }
 .two-factor h2.sub_headline {
@@ -65,4 +65,7 @@
 .two-factor .backup-codes li {
     margin:0;
     list-style:none;
+}
+.two-factor .tl_trusted_devices th, .two-factor .tl_trusted_devices td {
+    line-height: 16px;
 }

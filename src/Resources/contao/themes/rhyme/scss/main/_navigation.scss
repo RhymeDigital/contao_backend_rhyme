@@ -69,20 +69,21 @@ $navButtonCurrentBorderColor:   $contaoOrange;
             border-left: 4px solid transparent;
         }
         a:hover {
-            border-left: 4px solid var(--contao);
-            color: var(--contao);
+            border-left: 4px solid var(--nav-hover);
+            color: var(--nav-hover);
         }
         li.current {
             a, a:hover {
-                background-color: var(--nav-current);
-                color: var(--contao);
-                border-left: 4px solid var(--contao);
+                background-color: var(--nav-hover-bg);
+                color: var(--nav-current);
+                font-weight: 700;
+                border-left: 4px solid var(--nav-current);
             }
         }
     }
 
     .tl_level_2 li:hover a {
-        color:#fff;
+        color: var(--nav);
     }
 
     .collapsed .menu_level_1 {

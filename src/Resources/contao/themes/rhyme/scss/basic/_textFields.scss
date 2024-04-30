@@ -23,12 +23,13 @@
     width: 19%;
 }
 .tl_text,.tl_text_2,.tl_text_3,.tl_text_4,.tl_textarea,.tl_text_unit,.tl_text_trbl,.tl_text_interval {
-    height: 30px;
+    height: 38px;
     margin: 3px 0;
     box-sizing: border-box;
-    padding: 5px 6px 6px;
+    padding: 8px 6px 6px;
     border: 1px solid var(--form-border);
     border-radius: 2px;
+    font-size: 0.875rem;
     background-color: var(--form-bg);
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -41,7 +42,7 @@
     cursor: not-allowed;
 }
 .tl_textarea {
-    padding:4px 6px;
+    padding: 8px 6px;
     line-height:1.45;
 }
 .tl_text_2,.tl_text_3,.tl_text_4,.tl_text_unit,.tl_text_trbl,.tl_text_interval {
