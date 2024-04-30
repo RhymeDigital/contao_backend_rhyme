@@ -1,11 +1,11 @@
 
 /* Body */
 body {
-    background:#fff;
-    overflow-y:scroll;
+    background: var(--body-bg);
+    overflow-y: scroll;
 }
 body.popup {
-    background:#fff;
+    background: var(--content-bg);
 }
 
 /* Tablet */

@@ -20,7 +20,7 @@ namespace {
     if (!Input::get('picker') && !Input::get('popup') && Input::get('do') !== 'group') {
         $GLOBALS['TL_DCA']['tl_article']['list']['sorting'] = array
         (
-            'mode'                    => DataContainer::MODE_SORTABLE,
+            'mode'                    => DataContainer::MODE_PARENT,
             'fields'                  => array('sorting'),
             'format'                  => '%s <span style="color:#999;padding-left:3px">[%s]</span>',
             'panelLayout'             => 'filter;search,limit',

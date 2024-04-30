@@ -1,23 +1,19 @@
 
 /* Basic elements */
 a {
-    color:#444;
+    color: var(--text);
     text-decoration:none;
 }
-@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-    a {
-        color:#222;
-    }
-}
 a:hover,a:active {
-    color:#006494;
+    color: var(--contao);
 }
+
 hr {
-    height:1px;
-    margin:18px 0;
-    border:0;
-    background:#ddd;
-    color:#ddd;
+    height: 1px;
+    margin: 18px 0;
+    border: 0;
+    background: var(--border);
+    color: var(--border);
 }
 p {
     margin-bottom:1em;

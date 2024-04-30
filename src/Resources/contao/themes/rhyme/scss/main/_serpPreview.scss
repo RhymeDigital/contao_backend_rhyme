@@ -8,8 +8,8 @@
     padding:4px 6px;
     font-family:Arial,sans-serif;
     font-weight:400;
-    color:#3c4043;
-    border:1px dotted #aaa;
+    color: var(--serp-preview);
+    background: var(--panel-bg);
     border-radius:2px;
 }
 .serp-preview p {
@@ -22,8 +22,11 @@
 .serp-preview .title {
     margin-bottom:2px;
     font-size:18px;
-    color:#1a0dab;
+    color: var(--serp-preview-title);
     line-height:1;
+}
+.serp-preview .tl_info {
+    background-color: transparent;
 }
 .serp-preview .description:not(:empty) {
     margin-top:3px;

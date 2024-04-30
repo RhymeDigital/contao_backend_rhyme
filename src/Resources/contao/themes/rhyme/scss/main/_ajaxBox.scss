@@ -8,8 +8,8 @@
     position:absolute;
     left:50%;
     margin-left:-150px;
-    background:#fff url("icons/loading.svg") no-repeat right 2em center;
-    border:2px solid #111;
+    background: var(--white) var(--icon-loading) no-repeat right 2em center;
+    border: 2px solid var(--black);
     border-radius:2px;
     font-size:1rem;
     text-align:left;
@@ -20,6 +20,6 @@
     position:absolute;
     top:0;
     left:0;
-    background:#fff;
+    background: var(--white);
     opacity: 0.5;
 }
