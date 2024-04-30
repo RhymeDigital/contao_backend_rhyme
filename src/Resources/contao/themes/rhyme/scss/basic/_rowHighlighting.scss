@@ -1,5 +1,5 @@
 
 /* Row highlighting */
-.hover-div:hover,.hover-row:hover td,.hover-div:hover .limit_toggler,.hover-row:hover .limit_toggler {
-    background-color:#fffce1 !important;
+.hover-div:hover, .hover-row:hover td, .hover-div:hover .limit_toggler, .hover-row:hover .limit_toggler {
+    background-color: var(--hover-row) !important;
 }

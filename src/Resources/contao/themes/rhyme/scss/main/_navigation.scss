@@ -19,6 +19,7 @@ $navButtonCurrentBorderColor:   $contaoOrange;
             background:#3a454d;
             display:block;
             margin:15px auto;
+            background: var(--nav-separator);
         }
 
         > li.last:after {
@@ -29,10 +30,13 @@ $navButtonCurrentBorderColor:   $contaoOrange;
             display:block;
             margin:0 15px;
             padding:3px 3px 3px 24px;
-            color: $navHeaderColor;
+            color: var(--nav-group);
             font-size:.65rem;
             text-transform:uppercase;
         }
+    }
+    .group-favorites {
+        background: url("icons/favorites_group.svg") 3px 2px no-repeat;
     }
     .group-content {
         background:url("icons/content.svg") 3px 2px no-repeat;
@@ -46,6 +50,9 @@ $navButtonCurrentBorderColor:   $contaoOrange;
     .group-system {
         background:url("icons/wrench.svg") 3px 2px no-repeat;
     }
+    [class^="menu_level_"] a {
+        color: var(--nav);
+    }
 
     .menu_level_1 {
         padding:6px 0 0 20px;
@@ -57,18 +64,19 @@ $navButtonCurrentBorderColor:   $contaoOrange;
             display:block;
             padding:0 18px 0 15px;
             font-weight:400;
-            color: $navButtonColor;
+            color: var(--nav);
             transition: all .2s ease;
             border-left: 4px solid transparent;
         }
         a:hover {
-            border-left: 4px solid $navButtonHoverColor;
-            color: $navButtonHoverColor;
+            border-left: 4px solid var(--contao);
+            color: var(--contao);
         }
         li.current {
             a, a:hover {
-                color: $navButtonCurrentColor;
-                border-left: 4px solid $navButtonCurrentBorderColor;
+                background-color: var(--nav-current);
+                color: var(--contao);
+                border-left: 4px solid var(--contao);
             }
         }
     }

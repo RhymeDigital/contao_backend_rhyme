@@ -1,15 +1,15 @@
 /* Font */
 body {
     font:400 1rem/1.25 $bodyFont;
-    color: $bodyFontColor;
+    color: var(--text);
 }
 h1,h2,h3,h4,h5,h6,strong,b,th {
-    color: $bodyFontColor;
+    color: var(--text);
     font-weight:400;
 }
 @media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
     body {
-        color: $bodyFontColor;
+        color: var(--text);
         font-weight:300;
     }
     h1,h2,h3,h4,h5,h6,strong,b,th {
@@ -33,20 +33,25 @@ input,textarea,select,button {
     }
 }
 .tl_gray {
-    color: $tlGray;
+    color: var(--gray);
 }
+
 .tl_green {
-    color: $tlGreen;
+    color: var(--green);
 }
+
 .tl_red {
-    color: $tlRed;
+    color: var(--red);
 }
+
 .tl_blue {
-    color: $tlBlue;
+    color: var(--blue);
 }
+
 .tl_orange {
-    color: $tlOrange;
+    color: var(--orange);
 }
+
 span.mandatory {
-    color: $tlRed;
+    color: var(--red);
 }

@@ -34,7 +34,7 @@ ul.sortable button {
     top:0;
     right:0;
     border:0;
-    background:#eee;
+    background: var(--form-button);
     margin:0;
     padding:0 0 3px;
     font-size:22px;
@@ -43,10 +43,10 @@ ul.sortable button {
     transition:all .1s linear;
 }
 ul.sortable button:hover {
-    background:#f9f9f9;
+    background: var(--form-button-hover);
 }
 ul.sortable button[disabled] {
-    color:#999;
+    color: var(--gray);
     cursor:not-allowed;
 }
 ul.sortable button[disabled]:hover {
@@ -54,23 +54,28 @@ ul.sortable button[disabled]:hover {
 }
 #picker-menu {
     padding:9px 6px 0;
-    border-bottom:1px solid #ddd;
+    border-bottom: 1px solid var(--content-border);
+}
+#picker-menu > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 #picker-menu li {
     display:inline-block;
     padding:8px 0;
-    background-color:#f9f9fb;
-    border:1px solid #ddd;
+    background-color: var(--table-even);
+    border: 1px solid var(--content-border);
     border-radius:2px 2px 0 0;
     position:relative;
     top:1px;
 }
 #picker-menu li:hover {
-    background-color:#f3f3f5;
+    background-color: var(--panel-bg);
 }
 #picker-menu li.current {
-    background-color:#f3f3f5;
-    border-bottom-color:#f3f3f5;
+    background-color: var(--panel-bg);
+    border-bottom-color: var(--panel-bg);
 }
 #picker-menu a {
     padding:3px 12px 3px 32px;
@@ -105,7 +110,7 @@ ul.sortable button[disabled]:hover {
 .ace_editor,.ace_editor * {
     font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace  !important;
     font-size:.75rem !important;
-    color:#444;
+    color: var(--text);
 }
 @media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
     .ace_editor,.ace_editor * {

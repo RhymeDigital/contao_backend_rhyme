@@ -1,9 +1,9 @@
 /* Appearance */
 :root {
     --text: #222;
-    --body-bg: #eaeaec;
+    --body-bg: #fff;
     --content-bg: #fff;
-    --content-border: #efefef;
+    --content-border: transparent;
     --black: #000;
     --white: #fff;
     --gray: #999;
@@ -13,11 +13,11 @@
     --orange: #f90;
     --contao: #f47c00;
     --border: #eaeaec;
-    --nav: #d3d6da;
+    --nav: #000;
     --nav-hover: #eaedf1;
     --nav-bg: #fff;
     --nav-hover-bg: #eaedf1;
-    --nav-current: #172b3b;
+    --nav-current: #fefefe;
     --nav-group: #9fa4a8;
     --nav-separator: #3a454d;
     --hover-row: #fffce1;
@@ -73,16 +73,17 @@
 html[data-color-scheme="dark"] {
     color-scheme: dark;
     --text: #ddd;
-    --body-bg: #121416;
+    --body-bg: #1b1d21;
     --content-bg: #1b1d21;
-    --content-border: #414448;
+    --content-border: transparent;
     --black: #fff;
     --white: #000;
     --blue: #0073a8;
     --orange: #d68c23;
     --contao: #f47c00;
     --border: #303236;
-    --nav-bg: #1b1d21;
+    --nav: #8f96a3;
+    --nav-bg: #121416;
     --nav-hover-bg: #1b325f;
     --nav-current: #272a30;
     --nav-separator: #3f3f3f;

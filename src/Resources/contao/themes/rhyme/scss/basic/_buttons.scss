@@ -11,22 +11,44 @@
     transition:background .2s ease;
 }
 .tl_panel .tl_submit,.tl_version_panel .tl_submit,.tl_formbody_submit .tl_submit {
-    background:#fff;
+    background: var(--form-bg);
+}
+.tl_panel .tl_submit:hover, .tl_version_panel .tl_submit:hover, .tl_formbody_submit .tl_submit:hover {
+    background: var(--form-bg-hover);
 }
 .tl_submit:hover {
-    color:inherit;
-    background-color:#f6f6f6;
+    color: inherit;
+    background-color: var(--form-button-hover);
 }
 .tl_submit:active {
-    color:#aaa;
+    color: var(--form-button-active);
 }
 .tl_submit:disabled {
-    cursor:default;
-    background:#e9e9e9;
-    color:#999;
+    color: var(--gray);
+    background: var(--form-button-disabled) !important;
+    cursor: not-allowed;
 }
 a.tl_submit {
     display:inline-block;
+}
+
+/* Badge */
+.badge-title {
+    float: right;
+    margin-left: 8px;
+    margin-top: -8px;
+    border-radius: 8px;
+    padding: 2px 5px;
+    background: var(--invert-bg);
+    color: var(--invert-text);
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .badge-title {
+        font-weight: 500;
+    }
 }
 
 /* Split buttons */
@@ -37,7 +59,26 @@ a.tl_submit {
 }
 
 /* Split button */
-@media (min-width:1236px) {
+@media (min-width: 1280px) {
+    .w25 {
+        width: calc(25% - 30px);
+    }
+
+    .w33 {
+        width: calc(33.3333% - 30px);
+    }
+
+    .w66 {
+        width: calc(66.6666% - 30px);
+    }
+
+    .w75 {
+        width: calc(75% - 30px);
+    }
+
+    #sbtog {
+        display: none;
+    }
     #sbtog {
         display:none;
     }
@@ -55,14 +96,17 @@ a.tl_submit {
     }
 }
 
-@media (max-width:1235px) {
+@media (max-width:1279px) {
+    .split-button {
+        display: inline-flex;
+    }
     .split-button ul {
         position:absolute;
         right:0;
         bottom:20px;
         min-width:100%;
-        background:#fff;
-        border:1px solid #aaa;
+        background: var(--form-bg);
+        border: 1px solid var(--form-border);
         border-radius:2px;
         box-sizing:border-box;
         padding:3px 0;
@@ -77,10 +121,10 @@ a.tl_submit {
     .split-button ul .tl_submit {
         margin-top:0;
         margin-bottom:0;
-        background:#fff;
+        background: var(--form-bg);
     }
     .split-button ul .tl_submit:hover {
-        background:#f3f3f3;
+        background: var(--form-button-hover);
     }
     .split-button ul:before {
         content:"";
@@ -92,7 +136,7 @@ a.tl_submit {
         bottom:-12px;
         z-index:89;
         border:6px inset transparent;
-        border-top:6px solid #fff;
+        border-top: 6px solid var(--form-bg);
     }
     .split-button ul:after {
         content:"";
@@ -104,7 +148,7 @@ a.tl_submit {
         bottom:-14px;
         z-index:88;
         border:7px inset transparent;
-        border-top:7px solid #aaa;
+        border-top: 7px solid var(--form-border);
     }
     .split-button button img {
         vertical-align:0;
@@ -115,15 +159,15 @@ a.tl_submit {
     }
     .split-button > button[type="button"] {
         padding:7px 4px;
-        background:#fff;
-        border:1px solid #aaa;
+        background: var(--form-bg);
+        border: 1px solid var(--form-border);
         border-left:0;
         border-radius:0 2px 2px 0;
         box-sizing:border-box;
         transition:background .2s ease;
     }
     .split-button > button[type="button"].active,.split-button > button[type="button"]:hover {
-        background:#f6f6f6;
+        background: var(--form-button-hover);
     }
     .split-button > button[type="button"]:focus {
         outline:none;
