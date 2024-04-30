@@ -1,14 +1,12 @@
-![Alt text](docs/logo.png?raw=true&v=3 "logo")
+![Rhyme Logo](docs/logo.png)
 
 # Contao Back End Bundle
 
-A Contao CMS 4.x bundle that applies a custom theme to the back end of the website.
-
-<br/>
+A Contao CMS 5.3+ bundle that applies a custom theme to the back end of the website.
 
 # Preview of the theme
 
-![Alt text](docs/sample_01.png?raw=true&v=4 "Preview 1")
+![Preview](docs/sample_01.png)
 
 
 ### <u>_Configurations_</u>
@@ -41,19 +39,7 @@ src/Resources/element_sets
 src/Resources/public/assets/img/element_sets
 ```
 
-**NOTE:** In order for the images to work, you need to run the `Recreate the symlinks` command via "Maintenance" > "Purge Data" in Contao.
 
-Alternatively, you can run the `assets:install` command in the `%kernel.project_dir%`. Be sure to replace `web` or `public` with your custom `%contao.web_dir%` if you have one.
-
-Examples:
-
-```
-php vendor/bin/contao-console assets:install web --symlink
-
-php vendor/bin/contao-console assets:install public --symlink
-```
-
-<br/>
 
 ### <u>_Language Entries_</u>
 
@@ -65,7 +51,9 @@ Language entries for element set _groups_ must match the group's config key, pre
 
 _Examples:_
 
-```<?php
+```
+<?php
+
 /**
  * Element set groups
  */
