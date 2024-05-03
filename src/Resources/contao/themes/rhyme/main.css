@@ -1151,8 +1151,8 @@ table.tl_listing {
 
 .tl_folder_list, .tl_folder_tlist {
   padding: 7px 0;
-  border-bottom: 1px solid #e9e9e9;
-  background: #f3f3f5;
+  background: var(--table-header);
+  border-bottom: 1px solid var(--border);
   font-weight: 600;
 }
 
@@ -1162,13 +1162,14 @@ table.tl_listing {
   }
 }
 .tl_folder_tlist {
-  border-top: 1px solid #e9e9e9;
+  border-top: 1px solid var(--border);
 }
 
 .tl_file, .tl_file_list {
   padding: 12px 0;
-  border-bottom: 1px solid #e9e9e9;
-  background: #fff;
+  background: var(--content-bg);
+  border-bottom: 1px solid var(--border);
+  position: relative;
 }
 
 .tl_file_list {
@@ -1194,7 +1195,7 @@ table.tl_listing {
 }
 
 .tl_listing.picker .tl_file, .tl_listing.picker .tl_folder, .tl_listing.picker .tl_right_nowrap, .tl_listing_container.picker .tl_content_header, .tl_listing_container.picker .tl_content {
-  background-image: linear-gradient(90deg, transparent calc(100% - 26px), #f0f0f2 26px);
+  background-image: linear-gradient(90deg, transparent calc(100% - 26px), var(--tree-header) 26px);
 }
 
 .tl_listing.picker .tl_tree_checkbox, .tl_listing.picker .tl_tree_radio, .tl_listing_container.picker .tl_tree_checkbox, .tl_listing_container.picker .tl_tree_radio {
@@ -1238,7 +1239,6 @@ table.tl_listing {
   padding: 4px 6px;
   line-height: 16px;
   white-space: pre-line;
-  background: #f6f6f8;
 }
 
 .tl_show td:first-child {
@@ -1250,13 +1250,9 @@ table.tl_listing {
   margin-bottom: 0;
 }
 
-.tl_show tr:nth-child(2n) td {
-  background: #fff;
-}
-
 .tl_show small {
   display: block;
-  color: #808080;
+  color: var(--info);
 }
 
 .tl_label {
@@ -1962,7 +1958,7 @@ ul.sgallery li {
 
 #tl_soverview > div {
   padding: 0 15px 4px;
-  border-bottom: 1px solid #e6e6e8;
+  border-bottom: 1px solid var(--border);
 }
 
 #tl_soverview > div:last-child {
@@ -1997,13 +1993,7 @@ ul.sgallery li {
 }
 
 #tl_versions th {
-  background: #f6f6f8;
   padding: 8px;
-  border-top: 1px solid #e9e9e9;
-}
-
-#tl_versions th, #tl_versions td {
-  border-bottom: 1px solid #e9e9e9;
 }
 
 #tl_versions td {
@@ -2800,9 +2790,9 @@ fieldset.collapsed > legend {
 /* Pagination */
 .pagination {
   overflow: hidden;
-  background: #f6f6f8;
+  background: var(--panel-bg);
+  border: solid var(--border);
   margin-bottom: 18px;
-  border: solid #e9e9e9;
   border-width: 1px 0;
   padding: 12px 15px;
 }
@@ -2826,7 +2816,7 @@ fieldset.collapsed > legend {
 }
 
 .pagination .active {
-  color: #999;
+  color: var(--gray);
 }
 
 .pagination-lp {

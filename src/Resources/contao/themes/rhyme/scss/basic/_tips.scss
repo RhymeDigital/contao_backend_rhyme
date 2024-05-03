@@ -12,20 +12,27 @@
     max-width:320px;
     padding:6px 9px;
     border-radius:2px;
-    background: $liteGray;
+    background: var(--invert-bg);
 }
 .tip div {
     line-height:1.3;
 }
 .tip div,.tip a {
-    color: $gray;
+    color: var(--invert-text);
     font-size: 0.875rem;
 }
-.tip-top {
-    height:6px;
-    position:absolute;
-    top:-13px;
-    border-left:7px solid transparent;
-    border-right:7px solid transparent;
-    border-bottom:7px solid $liteGray;
+.tip:before {
+    border-bottom: 7px solid var(--invert-bg);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    content: "";
+    height: 6px;
+    left: 9px;
+    position: absolute;
+    top: -13px
+}
+
+.tip--rtl:before {
+    left: auto;
+    right: 9px
 }
