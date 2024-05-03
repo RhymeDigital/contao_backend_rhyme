@@ -3,11 +3,11 @@
 /* Submit buttons */
 .tl_submit {
     padding:10px 15px;
-    border:1px solid #aaa;
     border-radius:2px;
     box-sizing:border-box;
     cursor:pointer;
-    background:#eee;
+    background: var(--form-button);
+    border: 1px solid var(--form-border);
     transition:background .2s ease;
 }
 .tl_panel .tl_submit,.tl_version_panel .tl_submit,.tl_formbody_submit .tl_submit {
