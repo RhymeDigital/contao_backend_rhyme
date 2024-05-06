@@ -25,7 +25,8 @@
             "Rhyme\\ContaoBackendThemeBundle\\": "src"
         },
         "exclude-from-classmap": [
-            "src/Resources/contao/themes/"
+            "src/Resources/contao/themes/",
+            "src/contao"
         ]
     },
     "extra": {
