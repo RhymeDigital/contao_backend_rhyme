@@ -38,5 +38,5 @@ fieldset.collapsed div {
     display:none !important;
 }
 fieldset.collapsed > legend {
-    background:url("icons/navexp.svg") #fff 13px 15px no-repeat;
+    background:url("icons/navexp.svg") var(--body-bg) 13px 15px no-repeat;
 }

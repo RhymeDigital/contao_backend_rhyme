@@ -419,6 +419,11 @@ p {
   margin: 2px 0;
 }
 
+.widget .tl_confirm, .widget .tl_error, .widget .tl_info, .widget .tl_new {
+  background-position: 9px 9px;
+  padding: 8px 10px 8px 30px;
+}
+
 /* Forms */
 optgroup {
   padding-top: 3px;
