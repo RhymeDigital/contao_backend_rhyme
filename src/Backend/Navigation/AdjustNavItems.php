@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Rhyme\ContaoBackendThemeBundle\Backend\Navigation;
 
-use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\Controller;
 use Contao\ArrayUtil;
 use Contao\Input;
@@ -39,9 +38,7 @@ class AdjustNavItems extends Controller
         ]);
 
         // Remove the old items
-        if (version_compare(ContaoCoreBundle::getVersion(), '5.0', '<')) {
-            unset($GLOBALS['BE_MOD']['design']['page']);
-        }
+        unset($GLOBALS['BE_MOD']['design']['page']);
 
         if (!Input::get('picker') && !Input::get('popup') && Input::get('do') !== 'group') {
             unset($GLOBALS['BE_MOD']['content']['article']);
