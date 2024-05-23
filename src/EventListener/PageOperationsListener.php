@@ -18,16 +18,23 @@ use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\DataContainer;
 use Doctrine\DBAL\Connection;
-use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Core\Security;
 
 
 class PageOperationsListener
 {
+    private ContaoFramework $framework;
+    private Security $security;
+    private Connection $connection;
+
     public function __construct(
-        private readonly ContaoFramework $framework,
-        private readonly Security $security,
-        private readonly Connection $connection,
+        ContaoFramework $framework,
+        Security $security,
+        Connection $connection
     ) {
+        $this->connection = $connection;
+        $this->security = $security;
+        $this->framework = $framework;
     }
 
     public function adjustArticleGlobalOperations(string $table): void

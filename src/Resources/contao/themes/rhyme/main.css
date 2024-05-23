@@ -1224,6 +1224,14 @@ table.tl_listing {
   height: auto;
 }
 
+.tl_undo_preview {
+  max-width: 60%;
+}
+.tl_undo_preview img {
+  max-width: 200px;
+  height: auto;
+}
+
 /* Parent view */
 .tl_header {
   padding: 6px;
