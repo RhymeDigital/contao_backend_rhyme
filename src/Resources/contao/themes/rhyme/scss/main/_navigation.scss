@@ -57,12 +57,12 @@ $navButtonCurrentBorderColor:   $contaoOrange;
     .menu_level_1 {
         padding:6px 0 0 20px;
         li {
-            padding: 5px 0;
+            padding: 2px 0;
         }
         a {
             font-size: .9rem;
             display:block;
-            padding:0 18px 0 15px;
+            padding:3px 18px 3px 15px;
             font-weight:400;
             color: var(--nav);
             transition: all .2s ease;
