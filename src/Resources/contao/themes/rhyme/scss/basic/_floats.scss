@@ -22,16 +22,33 @@
 .wizard > a {
     vertical-align:middle;
 }
-.wizard .tl_text,.wizard .tl_select {
+.wizard .tl_text,.wizard .tl_select, .wizard .tl_image_size {
     width:calc(100% - 40px);
 }
 .wizard .tl_text_2 {
     width:45%;
 }
+.wizard {
+    display: flex;
+    flex-wrap: wrap;
+
+    h3 {
+        width: 100%;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+        border-radius: unset;
+    }
+}
 .wizard img {
     margin-left:4px;
-    width: 32px;
+    width: 16px;
     height: auto;
+}
+.wizard button img {
+    width: 28px;
 }
 .wizard.dcapicker img {
     margin-left: -10px;
