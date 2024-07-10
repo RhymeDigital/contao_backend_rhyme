@@ -22,7 +22,7 @@ namespace {
     $blnVloLoaded = EnvironmentHelper::isVeelloLoaded();
 
     //Set global backend theme
-    $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme_contao_backend_theme';
+    $GLOBALS['TL_CONFIG']['backendTheme']         = 'rhyme';
 
     /**
      * Back end modules

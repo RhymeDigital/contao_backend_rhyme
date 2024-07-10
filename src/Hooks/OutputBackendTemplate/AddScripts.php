@@ -29,8 +29,8 @@ class AddScripts extends Controller
         $scripts = '';
 
         if ($strTemplate === 'be_main') {
-            $scripts .= '<link rel="stylesheet" href="bundles/rhymecontaobackendtheme/assets/css/element_sets.css">';
-            $scripts .= '<script src="bundles/rhymecontaobackendtheme/assets/js/element_sets.js"></script>';
+            $scripts .= '<link rel="stylesheet" href="/bundles/rhymecontaobackendtheme/assets/css/element_sets.css">';
+            $scripts .= '<script src="/bundles/rhymecontaobackendtheme/assets/js/element_sets.js"></script>';
         }
 
         $backendTemplates = array('be_main', 'be_login');
@@ -40,7 +40,7 @@ class AddScripts extends Controller
             $scripts .= "\n";
             $scripts .= '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,800,900">';
             $scripts .= "\n";
-            $scripts .= '<script src="bundles/rhymecontaobackendtheme/assets/js/datepickerfixes.js"></script>';
+            $scripts .= '<script src="/bundles/rhymecontaobackendtheme/assets/js/datepickerfixes.js"></script>';
             $strBuffer = \str_replace('</head>', ($scripts . '</head>'), $strBuffer);
         }
 
