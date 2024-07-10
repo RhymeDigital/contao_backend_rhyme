@@ -968,6 +968,11 @@ a.tl_submit {
   height: 30px;
 }
 
+.wizard h3 a img {
+  width: initial;
+  height: initial;
+}
+
 .wizard button img {
   width: 28px;
 }
@@ -1008,7 +1013,7 @@ a.tl_submit {
 
 .dcapicker .tl_text + a {
   position: relative;
-  top: 2px;
+  top: 10px;
   margin-left: -22px;
 }
 
@@ -1042,10 +1047,11 @@ a.tl_submit {
 }
 
 .tip-wrap {
-  z-index: 99;
+  z-index: 9999;
 }
 
 .tip {
+  z-index: 9999;
   max-width: 320px;
   padding: 6px 9px;
   border-radius: 2px;

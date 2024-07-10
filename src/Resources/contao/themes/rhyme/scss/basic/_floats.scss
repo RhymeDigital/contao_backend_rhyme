@@ -47,6 +47,10 @@
     width: 30px;
     height: 30px;
 }
+.wizard h3 a img {
+    width: initial;
+    height: initial;
+}
 .wizard button img {
     width: 28px;
 }
@@ -78,7 +82,7 @@
 }
 .dcapicker .tl_text + a {
     position:relative;
-    top:2px;
+    top:10px;
     margin-left:-22px;
 }
 
