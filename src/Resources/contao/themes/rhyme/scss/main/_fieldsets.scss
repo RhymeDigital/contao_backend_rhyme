@@ -26,6 +26,11 @@ fieldset.tl_tbox > legend,fieldset.tl_box > legend {
     top: -25px;
     background-color: var(--body-bg);
 
+    button {
+        border: none;
+        background-color: transparent;
+    }
+
     span {
         white-space: nowrap;
     }
