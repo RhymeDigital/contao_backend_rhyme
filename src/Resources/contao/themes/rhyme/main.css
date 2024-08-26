@@ -2776,6 +2776,10 @@ fieldset.tl_tbox > legend, fieldset.tl_box > legend {
   top: -25px;
   background-color: var(--body-bg);
 }
+fieldset.tl_tbox > legend button, fieldset.tl_box > legend button {
+  border: none;
+  background-color: transparent;
+}
 fieldset.tl_tbox > legend span, fieldset.tl_box > legend span {
   white-space: nowrap;
 }
