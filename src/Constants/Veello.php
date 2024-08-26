@@ -22,7 +22,7 @@ final class Veello
     /**
      * @var string
      */
-    public const ELEMENT_SET_DUMMY_IMAGE_PATH = '{{vee-dummy-image}}';
+    public const ELEMENT_SET_DUMMY_IMAGE_PATH = 'public/bundles/veellotheme/backend/element_sets/_dummy.png';
 
     /**
      * @var string

@@ -21,6 +21,7 @@ use Contao\FilesModel;
 use Contao\DataContainer;
 use Contao\Image\ResizeConfiguration;
 use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
+use Veello\ThemeBundle\ElementSetManager;
 use Rhyme\ContaoBackendThemeBundle\Helper\ElementSetHelper;
 use Rhyme\ContaoBackendThemeBundle\Model\Veello\ElementSet;
 
@@ -113,6 +114,7 @@ class Callbacks
      */
     public static function generateImage(ElementSet $elementSetModel) : string
     {
+        //TODO - We need an SVG here and it is not working quite the way it should right now, but is working
         $strImage = Veello::ELEMENT_SET_DUMMY_IMAGE_PATH;
         $projectDir = System::getContainer()->getParameter('kernel.project_dir');
 
