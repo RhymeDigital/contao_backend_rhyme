@@ -10,13 +10,15 @@ namespace {
      * @license LGPL-3.0+
      */
 
-    use Contao\ArrayUtil;
-    use Contao\Controller;
     use Rhyme\ContaoBackendThemeBundle\Backend\Page\Callbacks;
-    use Contao\CoreBundle\ContaoCoreBundle;
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
     $dca = &$GLOBALS['TL_DCA']['tl_page'];
+
+	/**
+	 * Config
+	 */
+	$dca['config']['switchToEdit'] = true;
 
     /**
      * Fields

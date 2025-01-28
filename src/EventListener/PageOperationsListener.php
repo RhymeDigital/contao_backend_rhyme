@@ -48,7 +48,9 @@ class PageOperationsListener
         DataContainer $dc
     ): string
     {
-        unset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles']);
+		if (isset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles'])) {
+			unset($GLOBALS['TL_DCA']['tl_page']['list']['operations']['articles']);
+		}
         return '';
     }
 }

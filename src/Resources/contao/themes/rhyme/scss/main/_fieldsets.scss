@@ -18,7 +18,7 @@ fieldset.tl_tbox > legend,fieldset.tl_box > legend {
     color: $contaoOrange;
     font-weight: 700;
     padding:9px 12px 9px 28px;
-    background:url("icons/navcol.svg") 13px 15px no-repeat;
+    background:url("icons/navcol.svg") 13px 12px no-repeat;
     cursor:pointer;
     position: absolute;
     left: 0;
@@ -29,6 +29,13 @@ fieldset.tl_tbox > legend,fieldset.tl_box > legend {
         white-space: nowrap;
     }
 }
+fieldset:is(.tl_tbox,.tl_box) > legend[onclick] {
+    cursor: pointer;
+}
+fieldset:is(.tl_tbox,.tl_box) > legend:has(> button) {
+    padding: 0;
+    background: none;
+}
 fieldset.collapsed {
     margin-bottom:0;
     padding-bottom:5px;
@@ -36,6 +43,10 @@ fieldset.collapsed {
 fieldset.collapsed div {
     display:none !important;
 }
+fieldset.collapsed > legend > button,
+fieldset.collapsed > legend:not(:has(> button)) {
+    background: url("icons/navexp.svg") #fff 13px 12px no-repeat;
+}
 fieldset.collapsed > legend {
-    background:url("icons/navexp.svg") #fff 13px 15px no-repeat;
+    background:url("icons/navexp.svg") #fff 13px 12px no-repeat;
 }

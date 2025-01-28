@@ -51,6 +51,13 @@ body.popup {
 #tmenu li {
   position: relative;
 }
+/* Fix for Veello icon sets overriding the header menu font */
+#tmenu a[class^="icon-"], #tmenu a[class*=" icon-"] {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  -webkit-font-smoothing: inherit !important;
+  -moz-osx-font-smoothing: inherit !important;
+}
 #tmenu a, #tmenu .h2, #tmenu .profile button {
   padding: 13px 12px;
   display: inline-block;
@@ -118,7 +125,7 @@ body.popup {
   padding: 6px 0 9px;
   background: #fff;
   box-shadow: 0 0 3px #999;
-  z-index: 1;
+  z-index: 4;
   color: #444;
   text-align: left;
   opacity: 0;
@@ -737,7 +744,7 @@ h2.sub_headline {
   background: none;
   border: none;
 }
-.jump-targets :before, .jump-targets :after {
+.jump-targets:before, .jump-targets:after {
   content: "";
   display: block;
   width: 10px;
@@ -745,10 +752,10 @@ h2.sub_headline {
   position: absolute;
   top: 0;
 }
-.jump-targets :before {
+.jump-targets:before {
   /*background: linear-gradient(-90deg, transparent 0, var(--panel-bg) 50%);*/
 }
-.jump-targets :after {
+.jump-targets:after {
   right: 0;
   background: linear-gradient(90deg, transparent 0, var(--panel-bg) 50%);
 }
@@ -2766,10 +2773,36 @@ fieldset.tl_tbox > legend, fieldset.tl_box > legend {
   top: -25px;
   background-color: #fff;
 }
+fieldset:is(.tl_tbox,.tl_box) > legend[onclick] {
+  cursor: pointer;
+}
+fieldset:is(.tl_tbox,.tl_box) > legend:has(> button) {
+  padding: 0;
+  background: none;
+}
+fieldset:is(.tl_tbox,.tl_box) > legend > button {
+  text-align: initial;
+  border: 0 none;
+  width: 100%;
+  line-height: inherit;
+  box-sizing: border-box;
+  padding: 9px 12px 9px 28px;
+  background: transparent url("icons/navcol.svg") 13px 12px no-repeat;
+  cursor: pointer;
+}
 fieldset.tl_tbox > legend span, fieldset.tl_box > legend span {
   white-space: nowrap;
 }
-
+fieldset:is(.tl_tbox,.tl_box) > legend > button {
+  text-align: initial;
+  border: 0 none;
+  width: 100%;
+  line-height: inherit;
+  box-sizing: border-box;
+  padding: 9px 12px 9px 28px;
+  background: transparent url("icons/navcol.svg") 13px 12px no-repeat;
+  cursor: pointer;
+}
 fieldset.collapsed {
   margin-bottom: 0;
   padding-bottom: 5px;
@@ -2779,8 +2812,9 @@ fieldset.collapsed div {
   display: none !important;
 }
 
-fieldset.collapsed > legend {
-  background: url("icons/navexp.svg") #fff 13px 15px no-repeat;
+fieldset.collapsed > legend > button,
+fieldset.collapsed > legend:not(:has(> button)) {
+  background: url("icons/navexp.svg") #fff 13px 12px no-repeat;
 }
 
 /* Pagination */

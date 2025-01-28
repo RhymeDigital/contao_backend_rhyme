@@ -15,6 +15,7 @@ namespace {
     use Contao\ContentModel;
     use Rhyme\ContaoBackendThemeBundle\Constants\Veello;
     use Rhyme\ContaoBackendThemeBundle\Model;
+	use Rhyme\ContaoBackendThemeBundle\Hooks;
     use Rhyme\ContaoBackendThemeBundle\Constants\Config;
     use Rhyme\ContaoBackendThemeBundle\Helper\EnvironmentHelper;
     use Rhyme\ContaoBackendThemeBundle\Backend\Navigation\AdjustNavItems;
@@ -44,11 +45,12 @@ namespace {
     /**
      * Hooks
      */
-    $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\SetTinyMCE', 'run'];
-    $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = ['Rhyme\ContaoBackendThemeBundle\Hooks\LoadDataContainer\FixDateSpaces', 'run'];
-    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\OutputBackendTemplate\AddScripts', 'run'];
-    $GLOBALS['TL_HOOKS']['parseBackendTemplate'][]      = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseBackendTemplate\AdjustElementSetSelector', 'run'];
-    $GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = ['Rhyme\ContaoBackendThemeBundle\Hooks\ParseFrontendTemplate\FixFrontendHelperArticle', 'run'];
+    $GLOBALS['TL_HOOKS']['loadDataContainer'][]         = [Hooks\LoadDataContainer\SetTinyMCE::class, 'run'];
+	$GLOBALS['TL_HOOKS']['loadDataContainer'][]         = [Hooks\LoadDataContainer\FixDateSpaces::class, 'run'];
+	$GLOBALS['TL_HOOKS']['loadDataContainer'][]         = [Hooks\LoadDataContainer\AdjustOperationEditIcons::class, 'run'];
+    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][]     = [Hooks\OutputBackendTemplate\AddScripts::class, 'run'];
+    $GLOBALS['TL_HOOKS']['parseBackendTemplate'][]      = [Hooks\ParseBackendTemplate\AdjustElementSetSelector::class, 'run'];
+    $GLOBALS['TL_HOOKS']['parseFrontendTemplate'][]     = [Hooks\ParseFrontendTemplate\FixFrontendHelperArticle::class, 'run'];
 
 
     /**

@@ -37,7 +37,7 @@
         border: none;
     }
 
-    :before, :after {
+    &:before, &:after {
         content: "";
         display: block;
         width: 10px;

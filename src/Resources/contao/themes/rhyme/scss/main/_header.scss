@@ -42,6 +42,11 @@
         padding:13px 12px;
         display:inline-block;
     }
+    /* Fix for Veello icon sets overriding the header menu font */
+    a[class^="icon-"],
+    a[class*=" icon-"] {
+        font-family: inherit !important;
+    }
     img {
         vertical-align:top;
     }
@@ -108,7 +113,7 @@
         padding:6px 0 9px;
         background:#fff;
         box-shadow:0 0 3px #999;
-        z-index:1;
+        z-index:4;
         color:#444;
         text-align:left;
         opacity:0;
