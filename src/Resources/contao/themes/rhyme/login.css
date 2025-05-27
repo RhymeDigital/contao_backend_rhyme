@@ -8,7 +8,7 @@
 @import 'basic.css';
 /* Body */
 body {
-  background: #ffffff url("icons/contao.svg") center 4.5em no-repeat;
+  background: var(--body-bg) url("icons/contao.svg") center 4.5em no-repeat;
 }
 
 /* Container */
@@ -19,7 +19,7 @@ body {
 #main {
   max-width: 350px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--content-bg);
   border-radius: 2px;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 .submit_container a:hover {
-  color: #006494;
+  color: var(--contao);
 }
 
 label[for=username] {
@@ -157,12 +157,16 @@ label[for=verify] {
   top: 0;
   left: 0;
   padding: 9px;
-  background: #fff;
+  background: var(--white);
   text-align: center;
 }
 
 .js #javascript {
   display: none;
+}
+
+.lost-password.message-section {
+  background: transparent !important;
 }
 
 /*# sourceMappingURL=login.css.map */
