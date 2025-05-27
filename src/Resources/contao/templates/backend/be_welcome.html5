@@ -1,0 +1,58 @@
+<?php
+
+use Contao\Backend;
+
+?>
+
+<div id="tl_soverview">
+
+    <div id="tl_messages">
+        <h2><?= $this->systemMessages ?></h2>
+        <p><?= $this->loginMsg ?></p>
+        <?= $this->messages ?>
+    </div>
+
+    <div id="tl_actionbuttons">
+        <h2>I'd Like To...</h2>
+        <div class="button_wrapper">
+            <div class="action_button">
+                <a href="/contao?do=page">
+                    <span class="image_wrapper"><img width="55" src="<?= $this->asset('icons/editor_.svg', 'system/themes/'.\Contao\Backend::getTheme()) ?>" alt="Edit Page"></span>
+                    <span class="text_wrapper">Edit Page</span>
+                </a>
+            </div>
+            <div class="action_button">
+                <a href="/contao?do=files">
+                    <span class="image_wrapper"><img width="55" src="<?= $this->asset('icons/folderO.svg', 'system/themes/'.\Contao\Backend::getTheme()) ?>" alt="Manage Files"></span>
+                    <span class="text_wrapper">Manage Files</span>
+                </a>
+            </div>
+            <div class="action_button">
+                <a href="/contao?do=form">
+                    <span class="image_wrapper"><img width="55" src="<?= $this->asset('icons/tablewizard.svg', 'system/themes/'.\Contao\Backend::getTheme()) ?>" alt="Manage Files"></span>
+                    <span class="text_wrapper">Manage Forms</span>
+                </a>
+            </div>
+            <div class="action_button">
+                <a href="/contao?do=user">
+                    <span class="image_wrapper"><img width="55" src="<?= $this->asset('icons/profile.svg', 'system/themes/'.\Contao\Backend::getTheme()) ?>" alt="Manage Users"></span>
+                    <span class="text_wrapper">Manage Users</span>
+                </a>
+            </div>
+            <div class="action_button">
+                <a href="/contao?do=maintenance">
+                    <span class="image_wrapper"><img width="55" src="<?= $this->asset('icons/modules_.svg', 'system/themes/'.\Contao\Backend::getTheme()) ?>" alt="Manage Maintenance"></span>
+                    <span class="text_wrapper">Maintenance</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="tl_shortcuts">
+        <h2><?= $this->shortcuts ?></h2>
+        <p><?= $this->shortcutsLink ?></p>
+    </div>
+
+
+
+</div>
