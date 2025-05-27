@@ -5,10 +5,13 @@
     top:0;
     left:0;
     padding:9px;
-    background:#fff;
+    background: var(--white);
     text-align:center;
 }
 .js #javascript {
     display:none;
 }
 
+.lost-password.message-section {
+    background: transparent !important;
+}
